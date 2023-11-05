@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaMoneyBill1 } from "react-icons/fa6";
@@ -7,10 +7,19 @@ import {  MdOutlinePriceChange, MdDateRange, MdDescription } from "react-icons/m
 const JobDetails = () => {
   const jobs = useLoaderData();
   const { jobTitle,deadline, priceRange, shortDescription} = jobs;
+
+//   const navigate = useNavigate()
   console.log(jobs);
+
+  localStorage.setItem('jobsData', JSON.stringify(jobTitle));
+
+//  const  handlePlaceBid  = () =>{
+//     navigate(`/bidField/${jobTitle}`)
+//  }
   return (
     <div>
       <Navbar></Navbar>
+      
       <h1>Job details</h1>
 
       <div>
@@ -77,7 +86,7 @@ const JobDetails = () => {
                 <div className="card-actions">
                 <Link jobs = {jobs} className="w-full"  to='/bidField'>
                 <button 
-               
+              
                 className="btn mt-4 bg-green-500 text-white hover:text-black  w-full">Place Your Bid</button>
                 </Link>
                 </div>

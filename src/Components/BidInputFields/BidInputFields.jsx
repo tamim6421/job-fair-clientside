@@ -1,10 +1,13 @@
+import axios from "axios";
 import useAuth from "../../Hooks/useAuth";
 import Navbar from "../Navbar/Navbar";
+import toast from "react-hot-toast";
 
-const BidInputFields = ({jobs}) => {
-    console.log(jobs)
+const BidInputFields = () => {
+ 
     const {user} = useAuth()
-
+    const jobTitle = JSON.parse(localStorage.getItem('jobsData'));
+    console.log(jobTitle)
     const handelSubmit = event =>{
         event.preventDefault()
         const form = event.target 
@@ -15,10 +18,22 @@ const BidInputFields = ({jobs}) => {
             email ,
             price,
             date,
-
+            jobTitle:jobTitle
         }
         console.log(bidInfo)
+        
+        axios.post('http://localhost:5000/bidProject', bidInfo)
+        .then(data => {
+            console.log(data.data)
+            if(data.data.insertedId){
+                toast.success('Project Bid successfully')
+            }
+        })
+
     }
+
+
+
   return (
 
     <div>
@@ -90,7 +105,7 @@ const BidInputFields = ({jobs}) => {
         </div>
         <div className="form-control mt-6">
     
-          <input className="btn btn-success" type="submit" value="Bid On The Job" />
+          <input className="btn btn-success" type="submit" value="Bid On The Project" />
         </div>
       </form>
     </div>
