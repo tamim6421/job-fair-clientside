@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaMoneyBill1 } from "react-icons/fa6";
@@ -6,7 +6,7 @@ import {  MdOutlinePriceChange, MdDateRange, MdDescription } from "react-icons/m
 
 const JobDetails = () => {
   const jobs = useLoaderData();
-  const { jobTitle, deadline, priceRange, shortDescription } = jobs;
+  const { jobTitle,deadline, priceRange, shortDescription} = jobs;
   console.log(jobs);
   return (
     <div>
@@ -75,7 +75,11 @@ const JobDetails = () => {
           </div>
                 </div>
                 <div className="card-actions">
-                  <button className="btn mt-4 bg-green-500 text-white hover:text-black  w-full">Place Your Bid</button>
+                <Link jobs = {jobs} className="w-full"  to='/bidField'>
+                <button 
+               
+                className="btn mt-4 bg-green-500 text-white hover:text-black  w-full">Place Your Bid</button>
+                </Link>
                 </div>
               </div>
             </div>
