@@ -11,7 +11,7 @@ const JobDetails = () => {
 //   const navigate = useNavigate()
   console.log(jobs);
 
-  localStorage.setItem('jobsData', JSON.stringify(jobTitle));
+  localStorage.setItem('jobsData', JSON.stringify(jobs));
 
 //  const  handlePlaceBid  = () =>{
 //     navigate(`/bidField/${jobTitle}`)

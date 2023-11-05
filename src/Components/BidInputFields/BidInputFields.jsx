@@ -6,8 +6,8 @@ import toast from "react-hot-toast";
 const BidInputFields = () => {
  
     const {user} = useAuth()
-    const jobTitle = JSON.parse(localStorage.getItem('jobsData'));
-    console.log(jobTitle)
+    const allJobs = JSON.parse(localStorage.getItem('jobsData'));
+    console.log(allJobs)
     const handelSubmit = event =>{
         event.preventDefault()
         const form = event.target 
@@ -18,7 +18,9 @@ const BidInputFields = () => {
             email ,
             price,
             date,
-            jobTitle:jobTitle
+            status:'pending',
+            completed:false,
+            allJobs
         }
         console.log(bidInfo)
         
@@ -92,7 +94,7 @@ const BidInputFields = () => {
             <input
               type="email"
               placeholder="Buyer Email"
-              defaultValue='tamimhossain6421@gmail.com'
+              defaultValue={allJobs.employerEmail}
               name=""
               readOnly
               className="input input-bordered"
