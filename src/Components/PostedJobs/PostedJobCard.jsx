@@ -1,9 +1,12 @@
+import axios from "axios";
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2'
 
-
-const PostedJobCard = ({data}) => {
+const PostedJobCard = ({data, handelDelete}) => {
     const{jobTitle,maximumPrice,minimumPrice,employerEmail,deadline,category,shortDescription, _id  } = data
     console.log(data)
+
+   
     return (
         <div>
             <div className="bg-green-300 p-5 rounded-lg shadow-lg w-3/4 mx-auto  px-6 py-1 mb-20">
@@ -22,7 +25,7 @@ const PostedJobCard = ({data}) => {
                 <div className=" flex-[1]">
                     <div className="flex md:flex-col gap-5 items-end mt-6 ">
                         <Link to={`/updateJobs/${_id}`}><button className="btn max-w-max"> update</button></Link>
-                        <button className="btn max-w-max"> delete</button>
+                        <button onClick={ () => handelDelete(_id)} className="btn max-w-max"> delete</button>
                         
                     </div>
                 </div>
