@@ -1,9 +1,178 @@
+import { useEffect, useState } from "react";
+import useAuth from "../../Hooks/useAuth";
+import Navbar from "../Navbar/Navbar";
+import axios from "axios";
 
 
 const AddJobs = () => {
+    const {user} = useAuth()
+    const [categories, setCategories] = useState([]);
+    const [catItem, setCatItem] = useState('')
+    // console.log(categories)
+   useEffect( ()=>{
+        axios('http://localhost:5000/category')
+        .then(res => {
+            setCategories(res.data)
+        })
+    } ,[])
+
+    // console.log(catItem)
+    const handleSubmitJobs = event =>{
+        event.preventDefault()
+        const form = event.target
+        const category = catItem
+        const employerEmail = user?.email
+        const title = form.title.value
+        const date = form.date.value 
+        const minimumPrice = form.minimum.value 
+        const maximumPrice = form.maximum.value
+        const description = form.description.value
+
+        const addJob = {
+            category,
+            employerEmail,
+            title,
+            date,
+            minimumPrice,
+            maximumPrice,
+            description
+
+        }
+        console.log(addJob)
+    }   
+
     return (
         <div>
-            <h1>add jobs</h1>
+            <Navbar></Navbar>
+            <h1 className="text-5xl font-semibold text-center">add a new jobs </h1>
+            <div>
+            <form onSubmit={handleSubmitJobs} >
+        <div className="md:flex gap-4  mb-8 px-4">
+            <div className="form-control md:w-1/2">
+              <label className="label">
+                <span className="label-text text-orange-300 text-lg font-semibold  " data-aos="fade-up">Email Of The Employer </span>
+              </label>
+              <label className="input-group">
+                <input
+                  type="email"
+                  placeholder="Employer Email"
+                  name="email"
+                  defaultValue={user?.email}
+                  required
+                  readOnly
+                  className="input input-bordered w-full"
+                  data-aos="fade-up"
+
+                />
+              </label>
+            </div>
+            <div className="form-control md:w-1/2">
+              <label className="label">
+                <span className="label-text text-orange-300  text-lg font-semibold " data-aos="fade-down" >Job Title</span>
+              </label>
+              <label className="input-group">
+                <input
+                  type="text"
+                  placeholder="Job Title"
+                  name="title"
+               
+                  required
+                  className="input input-bordered w-full"
+                  data-aos="fade-down"
+                />
+              </label>
+            </div>
+          </div>
+
+        
+
+          <div className="md:flex gap-4 mb-8 px-4">
+            <div className="form-control md:w-1/2">
+              <label className="label">
+                <span className="label-text text-orange-300  text-lg font-semibold " data-aos="fade-up"> Deadline</span>
+              </label>
+              <label className="input-group">
+                <input
+                  type="date"
+                  name="date"
+                  required
+                 
+                  placeholder="date"
+                  className="input input-bordered w-full"
+                  data-aos="fade-up"
+                />
+              </label>
+            </div>
+            <div className="form-control md:w-1/2">
+              <label className="label">
+                <span className="label-text text-orange-300  text-lg font-semibold " data-aos="fade-down">Category</span>
+              </label>
+              <select className="input input-bordered "
+              onChange={ (e) => setCatItem(e.target.value)}
+              name="" id="">
+                <option value="" disabled >Chose One</option>
+               {
+                categories.map( item =>  <option key={item._id} value={item.category_name} > {item.category_name} </option> )
+               }
+              </select>
+            </div>
+          </div>
+
+
+          <div className="md:flex gap-4 mb-8 px-4">
+            <div className="form-control md:w-1/2">
+              <label className="label">
+                <span className="label-text text-orange-300 text-lg font-semibold " data-aos="fade-up">Minimum Price</span>
+              </label>
+              <label className="input-group">
+                <input
+                  type="number"
+                  name="minimum"
+                  
+                  required
+                  placeholder="Minimum Price"
+                  className="input input-bordered w-full"
+                  data-aos="fade-up"
+                />
+              </label>
+            </div>
+            <div className="form-control md:w-1/2">
+              <label className="label">
+                <span className="label-text text-orange-300  text-lg font-semibold " data-aos="fade-down">Maximum Price</span>
+              </label>
+              <label className="input-group">
+                <input
+                  type="number"
+                  placeholder="Maximum Price"
+                 
+                    required
+                  name="maximum"
+                  className="input input-bordered w-full"
+                  data-aos="fade-down"
+                />
+              </label>
+            </div>
+          </div>
+
+          <div className="md:flex gap-4 mb-8 px-4">
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text text-orange-300  text-lg font-semibold " data-aos="fade-up">Description</span>
+              </label>
+              <textarea className="textarea textarea-accent" name="description" placeholder="text here"></textarea>
+            </div>
+          </div>
+
+          <input
+            type="submit"
+            name=""
+            value="Add New Jobs"
+            className="btn btn-block text-black bg-yellow-300 hover:bg-yellow-400"
+            id=""
+            data-aos="fade-down"
+          />
+        </form>
+            </div>
         </div>
     );
 };
