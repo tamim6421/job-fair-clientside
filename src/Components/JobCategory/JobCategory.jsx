@@ -1,6 +1,6 @@
 import axios, { all } from 'axios';
 import { useEffect, useState } from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { Tab, Tabs, TabList } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import JobCard from './JobCard';
 import { MdDashboard } from "react-icons/md";
@@ -8,14 +8,14 @@ import { MdDashboard } from "react-icons/md";
 const JobCategory = () => {
   const [categories, setCategories] = useState([]);
   const [allJobs, setAllJobs] = useState([]);
-  const [category, setCategory] = useState('web-development')
+  const [category, setCategory] = useState('graphics-design')
   // const [catName, setCatName] = useState('web-development');
   // const [filteredJobs, setFilteredJobs] = useState([]);
 
   // console.log(category)
 
   useEffect(() =>{
-    axios('http://localhost:5000/category').then((res) => setCategories(res.data));
+    axios('http://localhost:5000/category').then((res) => setCategories(res.data.sort((a, b) => a < b )));
   } ,[])
 
   

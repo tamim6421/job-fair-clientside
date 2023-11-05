@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import Navbar from "../Navbar/Navbar";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 
 const AddJobs = () => {
     const {user} = useAuth()
     const [categories, setCategories] = useState([]);
-    const [catItem, setCatItem] = useState('')
+    const [catItem, setCatItem] = useState('digital-marketing')
     // console.log(categories)
    useEffect( ()=>{
         axios('http://localhost:5000/category')
@@ -31,14 +32,22 @@ const AddJobs = () => {
         const addJob = {
             category,
             employerEmail,
-            title,
-            date,
+            jobTitle :title,
+            deadline:date,
             minimumPrice,
             maximumPrice,
-            description
+            shortDescription:description
 
         }
         console.log(addJob)
+        axios.post('http://localhost:5000/jobs', addJob)
+        .then(res =>{
+            console.log(res.data)
+            if(res.data.insertedId){
+                toast.success('Job added Successfully')
+            }
+
+        })
     }   
 
     return (

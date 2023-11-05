@@ -3,21 +3,32 @@
     {
       "jobTitle": "Frontend Developer",
       "category": "web-development",
+      "employerEmail": "tamimhossain6421@gmail.com",
       "deadline": "2023-12-01",
-      "priceRange": "$1000 - $1500",
+      "priceRange": "$1200 - $1800",
+      "minimumPrice": "1000",
+      "maximumPrice": "1200",
       "shortDescription": "Create interactive user interfaces using HTML, CSS, and JavaScript."
     },
     {
       "jobTitle": "Backend Developer",
       "category": "web-development",
+      
       "deadline": "2023-12-05",
       "priceRange": "$1200 - $1800",
+      "employerEmail": "tamimhossain6421@gmail.com",
+      "minimumPrice": "1000",
+      "maximumPrice": "1200",
+      
       "shortDescription": "Build server-side applications using technologies like Node.js and Python."
     },
     {
       "jobTitle": "Full Stack Developer",
       "category": "web-development",
       "deadline": "2023-12-10",
+      "employerEmail": "tamimhossain6421@gmail.com",
+      "minimumPrice": "1000",
+      "maximumPrice": "1200",
       "priceRange": "$1500 - $2000",
       "shortDescription": "Combine frontend and backend development skills to create complete web applications."
     },
@@ -25,6 +36,9 @@
       "jobTitle": "UI/UX Designer",
       "category": "web-development",
       "deadline": "2023-12-15",
+      "employerEmail": "tamimhossain6421@gmail.com",
+      "minimumPrice": "1000",
+      "maximumPrice": "1200",
       "priceRange": "$800 - $1200",
       "shortDescription": "Design visually appealing and user-friendly interfaces for web applications."
     },
@@ -32,6 +46,9 @@
         "jobTitle": "Social Media Manager",
         "category": "digital-marketing",
         "deadline": "2023-12-02",
+        "employerEmail": "tamimhossain6421@gmail.com",
+        "minimumPrice": "1000",
+        "maximumPrice": "1200",
         "priceRange": "$800 - $1200",
         "shortDescription": "Manage and curate content for various social media platforms."
       },
@@ -39,6 +56,9 @@
         "jobTitle": "SEO Specialist",
         "category": "digital-marketing",
         "deadline": "2023-12-07",
+        "employerEmail": "tamimhossain6421@gmail.com",
+        "minimumPrice": "1000",
+        "maximumPrice": "1200",
         "priceRange": "$1000 - $1500",
         "shortDescription": "Optimize websites for search engines to improve organic rankings."
       },
@@ -46,6 +66,9 @@
         "jobTitle": "PPC Campaign Manager",
         "category": "digital-marketing",
         "deadline": "2023-12-12",
+        "employerEmail": "tamimhossain6421@gmail.com",
+        "minimumPrice": "1000",
+        "maximumPrice": "1200",
         "priceRange": "$900 - $1400",
         "shortDescription": "Create and manage pay-per-click advertising campaigns."
       },
@@ -54,6 +77,9 @@
         "category": "digital-marketing",
         "deadline": "2023-12-18",
         "priceRange": "$700 - $1000",
+        "employerEmail": "tamimhossain6421@gmail.com",
+        "minimumPrice": "1000",
+        "maximumPrice": "1200",
         "shortDescription": "Plan and execute effective email marketing campaigns."
       },
       {
@@ -61,6 +87,9 @@
         "category": "graphics-design",
         "deadline": "2023-12-03",
         "priceRange": "$400 - $800",
+        "employerEmail": "tamimhossain6421@gmail.com",
+        "minimumPrice": "1000",
+        "maximumPrice": "1200",
         "shortDescription": "Design unique and memorable logos for businesses and brands."
       },
       {
@@ -68,6 +97,9 @@
         "category": "graphics-design",
         "deadline": "2023-12-08",
         "priceRange": "$600 - $1000",
+        "employerEmail": "tamimhossain6421@gmail.com",
+        "minimumPrice": "1000",
+        "maximumPrice": "1200",
         "shortDescription": "Create custom illustrations for various purposes."
       },
       {
@@ -75,6 +107,9 @@
         "category": "graphics-design",
         "deadline": "2023-12-14",
         "priceRange": "$300 - $600",
+        "employerEmail": "tamimhossain6421@gmail.com",
+        "minimumPrice": "1000",
+        "maximumPrice": "1200",
         "shortDescription": "Design eye-catching web banners for online advertising."
       },
       {
@@ -82,6 +117,9 @@
         "category": "graphics-design",
         "deadline": "2023-12-20",
         "priceRange": "$500 - $900",
+        "employerEmail": "tamimhossain6421@gmail.com",
+        "minimumPrice": "1000",
+        "maximumPrice": "1200",
         "shortDescription": "Create designs for print materials such as brochures and flyers."
       }
   ]
