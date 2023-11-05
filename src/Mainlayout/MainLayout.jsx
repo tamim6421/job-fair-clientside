@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-
+import { Toaster } from 'react-hot-toast';
 
 const MainLayout = () => {
     return (
@@ -8,6 +8,7 @@ const MainLayout = () => {
            <div>
             <Outlet></Outlet>
            </div>
+           <Toaster />
         </div>
     );
 };

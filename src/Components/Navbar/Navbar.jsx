@@ -1,7 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 
 
 const Navbar = () => {
+  const{user, logOut} = useAuth()
 
     const links = <>
 
@@ -66,7 +68,7 @@ const Navbar = () => {
  {links}
 </ul>
 </div>
-{/* <div className="navbar-end">
+<div className="navbar-end">
 {
   user ? <div> 
       <div className="dropdown dropdown-end">
@@ -90,7 +92,7 @@ const Navbar = () => {
           </li>
           <li className="w-full">
            <button
-        //   onClick={logOut}
+          onClick={logOut}
             className="btn btn-sm text-white  w-full bg-pink-400" > LogOut </button>
           </li>
   </ul>
@@ -100,7 +102,7 @@ const Navbar = () => {
 
 }
 
-</div> */}
+</div>
 </div>
     </div>
     );

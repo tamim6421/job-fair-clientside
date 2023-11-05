@@ -5,12 +5,14 @@ import Login from "../Pages/Login/Login";
 import AddJobs from "../Components/AddJobs/AddJobs";
 import PostedJobs from "../Components/PostedJobs/PostedJobs";
 import Register from "../Pages/Register/Register";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path:'/',
         element: <MainLayout></MainLayout>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',

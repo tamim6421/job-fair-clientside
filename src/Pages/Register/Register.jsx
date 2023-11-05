@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import { FaEye,FaEyeSlash  } from "react-icons/fa";
+import useAuth from "../../Hooks/useAuth";
 
 const Register = () => {
-
+    const {createUser, handleUpdateProfile} = useAuth()
     const [showPass, setShowPass] = useState(false)
     const navigate = useNavigate()
 
@@ -19,6 +20,45 @@ const Register = () => {
         const email = form.email.value 
         const password = form.password.value 
         console.log(email, password, name, photo)
+      
+        createUser(email, password)
+        .then( res =>{
+         const user = res.user
+         
+        //  localStorage.setItem('user', JSON.stringify(user));
+ 
+         // const newUser = {name, email}
+         // fetch('http://localhost:5000/users',{
+         //   method:"POST",
+         //   headers:{
+         //     'content-type':'application/json'
+         //   },
+         //   body:JSON.stringify(newUser)
+         // })
+         // .then(res => res.json())
+         // .then(data =>{
+         //   console.log(data)
+         // })
+ 
+ 
+ 
+      
+         handleUpdateProfile(name, photo)
+         .then(() =>{
+          //  toast.success('User Created Successful')
+           event.target.reset()
+ 
+           console.log(user)
+           navigate('/')
+ 
+ 
+         } )
+     })
+ 
+ 
+        .catch(error =>{
+         console.log(error)
+        })
     }
     return (
         <div className="container">

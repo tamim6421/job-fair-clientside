@@ -2,8 +2,11 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import { FaEye,FaEyeSlash  } from "react-icons/fa";
+import useAuth from "../../Hooks/useAuth";
+import toast from 'react-hot-toast';
 
 const Login = () => {
+    const{signInUser} = useAuth()
     const [showPass, setShowPass] = useState(false)
     const location = useLocation()
     const navigate = useNavigate()
@@ -16,6 +19,23 @@ const Login = () => {
         const password = form.password.value
 
         console.log(email, password)
+        signInUser(email, password)
+        .then(res =>{
+          const user = res.user
+          toast.success('Login Successful')
+          event.target.reset()
+          console.log(user)
+          // localStorage.setItem('user', JSON.stringify(user));
+          // Navigate after login 
+          navigate(location?.state ? location.state : '/')
+        })
+  
+  
+        .catch(error =>{
+          console.log(error)
+          toast.error(error.message)
+        })
+      
     }
 
     return (
