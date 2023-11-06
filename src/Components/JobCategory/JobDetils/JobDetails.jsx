@@ -3,7 +3,7 @@ import Navbar from "../../Navbar/Navbar";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaMoneyBill1 } from "react-icons/fa6";
 import {  MdOutlinePriceChange, MdDateRange, MdDescription } from "react-icons/md";
-import toast from "react-hot-toast";
+
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 
@@ -37,12 +37,10 @@ const handleBid = () =>{
   return (
     <div>
       <Navbar></Navbar>
-      
-      <h1>Job details</h1>
 
       <div>
-        <div className="h-[300px] bg-base-100 shadow-lg">
-          <div className=" px-20 gap-9 flex items-center  mt-20">
+        <div className="min-h-[300px] bg-base-100 p-2 mt-20 shadow-lg">
+          <div className=" px-20 gap-9 flex flex-col md:flex-row md:items-center ">
             <div>
               <img
                 className="mt-20"
@@ -50,6 +48,7 @@ const handleBid = () =>{
                 alt=""
               />
             </div>
+
             <div className="space-y-3">
               <h1 className="text-3xl text-green-400 font-bold">
                 {" "}
@@ -69,6 +68,7 @@ const handleBid = () =>{
                 <button className="btn bg-rose-300">Remote </button>
               </div>
             </div>
+
           </div>
         </div>
 

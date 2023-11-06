@@ -2,8 +2,10 @@ import axios from "axios";
 import useAuth from "../../Hooks/useAuth";
 import Navbar from "../Navbar/Navbar";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const BidInputFields = () => {
+  const navigate = useNavigate()
  
     const {user} = useAuth()
     const allJobs = JSON.parse(localStorage.getItem('jobsData'));
@@ -36,6 +38,8 @@ const BidInputFields = () => {
                 toast.success('Project Bid successfully')
             }
         })
+
+        navigate('/myBids')
 
     }
 
