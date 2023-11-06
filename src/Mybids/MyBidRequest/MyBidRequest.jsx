@@ -144,21 +144,33 @@ const MyBidRequest = () => {
             <td>{req.email}</td>
             <td>{req.price}</td>
             <td>{req.date}</td>
-            <td className={req.status == 'pending' ?"font-semibold text-green-400" : "font-semibold text-red-400"}>{req.status}</td>
+
+            <td  className={req.status == 'Pending' ?"font-semibold text-blue-500" : req.status == 'Rejected' ? 'text-red-500':'text-green-500' }>{req.status}</td>
             <td className="">
 
               <div>
               {
-                req.status == 'pending'? <div>
-                    <button onClick={() =>handleAccept(req._id)} className="btn btn-sm"> accept req </button>
+                req.status == 'Pending'? <div>
+                    <button  onClick={() =>handleAccept(req._id)} className="btn btn-sm"> accept req </button>
               <button onClick={() =>handleReject(req._id)} className="btn btn-sm"> reject req </button>
                 </div> :
+                req.status == 'Rejected' ?
                 <div className="hidden">
                     <button onClick={() =>handleAccept(req._id)} className="btn btn-sm"> accept req </button>
               <button onClick={() =>handleReject(req._id)} className="btn btn-sm"> reject req </button>
-                </div>
+                </div>:
+
+                    <div className="">
+                     <ProgressBar
+        percent={50}
+        filledBackground="linear-gradient(to right, #ff5100, #2efc00)"
+      />
+                    </div>
+
            
               }
+
+            
               </div>
 
             </td>

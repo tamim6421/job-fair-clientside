@@ -6,12 +6,14 @@ import {  MdOutlinePriceChange, MdDateRange, MdDescription } from "react-icons/m
 
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
+import daisyui from "daisyui";
 
 const JobDetails = () => {
   const {user} = useAuth()
   const jobs = useLoaderData();
   const { jobTitle,deadline, priceRange,employerEmail, shortDescription} = jobs;
-
+  const navigate = useNavigate()
 //   const navigate = useNavigate()
   console.log(jobs);
 
@@ -27,12 +29,24 @@ const handleBid = () =>{
   Swal.fire({
     icon: "error",
     title: "Oops...",
-    text: "YOU CAN NOT BID YOUR OWN PROJECT",
+    text: `YOUR BIDDING DATE IS CROSSED DEADLINE 
+    OR
+     YOU CAN NOT BID YOUR OWN PROJECT`,
     
   });
     
 }
 
+
+const handelDate = () =>{ 
+  console.log(deadline)
+  if(new Date(deadline) < new Date() ){
+
+    console.log('dhon')
+    return toast('blljg')
+
+  }
+}
 
   return (
     <div>
@@ -103,7 +117,7 @@ const handleBid = () =>{
                 </div>
                 <div className="card-actions">
                {
-                employerEmail === user?.email ? <>
+                employerEmail === user?.email || new Date(deadline) < new Date() ? <>
                  <Link jobs = {jobs} className="w-full"  to=''>
                 <button 
                 disabled
@@ -112,9 +126,10 @@ const handleBid = () =>{
                 </Link>
 
                 <p  onClick={handleBid} className="text-center text-orange-500 underline cursor-pointer">Info</p>
-                </> :
+                </> : 
                   <>  <Link jobs = {jobs} className="w-full"  to='/bidField'>
                   <button 
+                  onClick={handelDate}
                   className="btn mt-4 disabled bg-green-500 text-white hover:text-black  w-full">Place Your Bid</button>
                   </Link></>
 

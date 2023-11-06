@@ -4,6 +4,7 @@ import axios, { Axios } from "axios";
 import useAuth from "../Hooks/useAuth";
 import useAxiosSec from "../Hooks/useAxiosSec";
 import { Helmet } from "react-helmet-async";
+import toast from "react-hot-toast";
 
 
 const MyBids = () => {
@@ -27,6 +28,29 @@ const MyBids = () => {
     } ,[url, axiosSecure])
 
     console.log(myBids)
+
+
+    const handelComplete = (id) =>{
+        console.log(id)
+        fetch(`http://localhost:5000/bidProject/${id}`, {
+            method:"PATCH",
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify({status: 'Completed'})
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data)
+            setMyBids(data)
+            if(data.modifiedCount > 0){
+                toast.success('Bid Completed')
+                
+            }
+        })
+
+    }
+
     return (
         <div>
             <Helmet>
@@ -47,22 +71,22 @@ const MyBids = () => {
         <th>Job Title</th>
         <th>Email</th>
         <th>Deadline</th>
-        <th>Status</th>
-        <th>Action</th>
+        <th className="pl-10">Status</th>
+        <th className="pl-10">Action</th>
       </tr>
     </thead>
     <tbody>
       {/* row 1 */}
      {
-        myBids.map((bids, i) =>  <tr key={bids._id}>
+        myBids?.map((bids, i) =>  <tr key={bids._id}>
             <th>{i+1}</th>
             <td> {bids.allJobs.jobTitle} </td>
-            <td>{bids.email}</td>
+            <td>{bids.allJobs.employerEmail}</td>
             <td>{bids.date}</td>
-            <td className="font-semibold text-green-400">{bids.status}</td>
+            <td className={bids.status == 'Rejected'? "font-bold text-red-500" : bids.status == "Completed" ? "text-[#d900fa] font-bold": bids.status == "Pending"? 'text-blue-500 font-bold' : 'text-green-500 font-bold' }> <p className="bg-gray-200 w-[90px] text-center rounded-full py-[5px] ">{bids.status == 'Rejected' ? 'Cancelled' : bids.status}</p> </td>
             <td className="">
 
-                <button className="btn btn-sm"> Complete </button>
+                <button onClick={()=> handelComplete(bids._id)} className="btn btn-sm"> Complete </button>
 
             </td>
           </tr> )

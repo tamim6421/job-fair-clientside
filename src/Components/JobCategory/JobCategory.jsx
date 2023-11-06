@@ -63,7 +63,7 @@ const JobCategory = () => {
               onClick={() => handleCategory(cat.category_name)}
               
             >
-            {cat.category_name}
+            {cat.category_name  == 'graphics-design'? 'Graphics Design': cat.category_name == 'web-development'? 'Web Development': 'Digital Marketing'}
             </Tab>
           ))}
         </TabList>

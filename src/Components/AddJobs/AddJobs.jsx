@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import Navbar from "../Navbar/Navbar";
 import axios from "axios";
@@ -23,6 +23,8 @@ const AddJobs = () => {
     const [categories, setCategories] = useState([]);
     const [catItem, setCatItem] = useState('digital-marketing')
     const navigate = useNavigate()
+    const inputRef = useRef();
+
 
 
     // console.log(categories)
@@ -53,11 +55,11 @@ const AddJobs = () => {
       const enteredDate = new Date(event.target.value)
 
       if (!isNaN(enteredDate) && enteredDate < currentDate) {
-       
+        inputRef.current.value = '';
         return Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "Your Date Can Not Be Earlier The Toady",
+          text: "Your Date Can not be Earlier than Today",
         })
         
       } 
@@ -173,6 +175,7 @@ const AddJobs = () => {
               <input
         type="date"
         id="input"
+        ref={inputRef}
         className="input input-bordered w-full"
         name="date"
         onChange={handleDateChange}
