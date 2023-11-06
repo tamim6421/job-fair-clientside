@@ -40,10 +40,10 @@ const AddJobs = () => {
       return await allCategory.json()
     }
   })
-  console.log(data)
+  // console.log(data)
 
   if(isLoading){
-    return <p> Loading.....</p>
+    // return <p> Loading.....</p>
   }
 
     

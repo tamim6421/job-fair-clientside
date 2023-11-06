@@ -57,6 +57,16 @@ const Navbar = () => {
   Bid Request
 </NavLink>
         </li>
+        <li>
+        <NavLink
+  to="/contact"
+  className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "active" : ""
+  }
+>
+ Contact Us
+</NavLink>
+        </li>
     </>
     return (
         <div>
@@ -71,7 +81,9 @@ const Navbar = () => {
   
   </ul>
 </div>
-<Link to='/'><button className=" normal-case px-4 text-[#f87e95] font-extrabold text-2xl">Work</button></Link>
+<Link to='/'><button className=" normal-case px-4 text-[#f87e95] font-extrabold text-2xl">
+  <img className="w-28" src="https://i.ibb.co/bd4rzqD/attachment-101767836.jpg" alt="" />
+  </button></Link>
 </div>
 <div className="navbar-center hidden lg:flex">
 <ul className="menu menu-horizontal px-1">
