@@ -39,7 +39,7 @@ const BidInputFields = () => {
             email ,
             price,
             date,
-            status:'pending',
+            status:'Pending',
             completed:false,
             allJobs
         }

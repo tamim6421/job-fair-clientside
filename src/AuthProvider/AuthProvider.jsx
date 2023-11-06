@@ -44,7 +44,7 @@ const AuthProvider = ({children}) => {
 
             if(currentUser){
                
-                axios.post('http://localhost:5000/jwtToken', currentEmail, {withCredentials: true})
+                axios.post('http://localhost:5000/jwt', currentEmail, {withCredentials: true})
                 .then(res =>{
                     console.log('token response' ,res.data)
                 })
@@ -62,7 +62,7 @@ const AuthProvider = ({children}) => {
         return () =>{
             unSubscribe()
         }
-    } ,[auth])
+    } ,[])
 
     useEffect(() =>{
         if(user){

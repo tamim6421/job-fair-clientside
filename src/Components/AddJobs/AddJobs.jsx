@@ -11,6 +11,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -114,6 +115,11 @@ const AddJobs = () => {
 
     return (
         <div>
+           <Helmet>
+                <title>
+                JOB FAIR | Add Jobs
+                </title>
+            </Helmet>
             <Navbar></Navbar>
             <h1 className="text-5xl font-semibold text-center">add a new jobs </h1>
             <div>

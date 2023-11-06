@@ -1,24 +1,39 @@
 import { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar/Navbar";
-import axios from "axios";
+import axios, { Axios } from "axios";
 import useAuth from "../Hooks/useAuth";
+import useAxiosSec from "../Hooks/useAxiosSec";
+import { Helmet } from "react-helmet-async";
 
 
 const MyBids = () => {
     const {user} = useAuth()
     const [myBids, setMyBids] = useState([])
+    const axiosSecure = useAxiosSec()
 
-    const url = `http://localhost:5000/bidProject?email=${user?.email}`
+    const url = `/bidProject?email=${user?.email}`
+
     useEffect( ()=>{
-        axios(url)
+        axiosSecure.get(url)
         .then(res => {
-            setMyBids(res.data)
+            setMyBids(res.data) 
         })
-    } ,[url])
+
+        
+        // axios(url, {withCredentials: true})
+        // .then(res => {
+        //     setMyBids(res.data)
+        // })
+    } ,[url, axiosSecure])
 
     console.log(myBids)
     return (
         <div>
+            <Helmet>
+            <title>
+                JOB FAIR | My Bids
+                </title>
+            </Helmet>
             <Navbar></Navbar>
             <h1 className="text-center text-3xl font-bold my-20">Your Bids jobs</h1>
 

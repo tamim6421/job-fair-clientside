@@ -24,7 +24,7 @@ const router = createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>,
-                loader: () => fetch('http://localhost:5000/jobs')
+                // loader: () => fetch('http://localhost:5000/jobs')
             },
             {
                 path:'/addJobs',
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/postedJobs',
-                element: <PostedJobs></PostedJobs>
+                element: <PrivetRoute><PostedJobs></PostedJobs></PrivetRoute>
             },
             {
                 path:'/login',
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/jobDetails/:id',
-                element:<JobDetails></JobDetails>,
+                element:<PrivetRoute><JobDetails></JobDetails></PrivetRoute>,
                 loader: ({params})=> fetch(`http://localhost:5000/jobs/${params.id}`)
             },
             {
@@ -59,11 +59,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myBids',
-                element:<MyBids></MyBids>
+                element:<PrivetRoute><MyBids></MyBids></PrivetRoute>
             },
             {
                 path:'/bidRequest',
-                element: <MyBidRequest></MyBidRequest>
+                element: <PrivetRoute><MyBidRequest></MyBidRequest></PrivetRoute>
             },
             {
                 path:'/contact',

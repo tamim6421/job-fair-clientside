@@ -5,10 +5,16 @@ import { BiSolidPhoneCall } from "react-icons/bi";
 import { AiTwotoneMail } from "react-icons/ai";
 import Navbar from '../../Components/Navbar/Navbar';
 import Title from "../../Components/Title/Title";
+import { Helmet } from "react-helmet-async";
 
 const ContactUs = () => {
     return (
         <div>
+            <Helmet>
+            <title>
+                JOB FAIR | Contact Us
+                </title>
+            </Helmet>
 
             <Navbar></Navbar>
             

@@ -4,18 +4,25 @@ import Navbar from "../Navbar/Navbar";
 import axios from "axios";
 import PostedJobCard from "./PostedJobCard";
 import Swal from "sweetalert2";
+import useAxiosSec from "../../Hooks/useAxiosSec";
+import { Helmet } from "react-helmet-async";
 
 const PostedJobs = () => {
     const {user} = useAuth()
     const[jobs, setJobs] = useState([])
+    const axiosSecure = useAxiosSec()
 
-    const url = `http://localhost:5000/jobs?employerEmail=${user?.email}`
+    const url = `/jobs?employerEmail=${user?.email}`
     useEffect( () =>{
-        axios(url)
-        .then(res =>{
+        axiosSecure.get(url)
+        .then(res => {
             setJobs(res.data)
         })
-    } ,[url])
+        // axios(url, {withCredentials: true})
+        // .then(res =>{
+        //     setJobs(res.data)
+        // })
+    } ,[axiosSecure, url])
     // console.log(jobs)
 
     const handelDelete = id =>{
@@ -52,6 +59,11 @@ const PostedJobs = () => {
 
     return (
         <div>
+            <Helmet>
+            <title>
+                JOB FAIR | Posted Job
+                </title>
+            </Helmet>
             <Navbar></Navbar>
             <h1 className="text-3xl font-semibold text-center my-20">Posted jobs</h1>
             <div>

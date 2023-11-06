@@ -27,13 +27,13 @@ const JobCategory = () => {
 
   useEffect(() =>{
     axios('http://localhost:5000/category')
-    .then((res) => setCategories(res.data.sort((a, b) => a < b )));
+    .then((res) => setCategories(res.data));
   } ,[])
 
   
   useEffect(() => {
    
-    axios(`http://localhost:5000/jobs?category=${category}`)
+    axios(`http://localhost:5000/jobs?category=${category}`, {withCredentials: true})
     .then((res) => {
       // console.log(res.data)
       setAllJobs(res.data)
