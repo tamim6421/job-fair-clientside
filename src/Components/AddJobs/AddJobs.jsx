@@ -3,19 +3,68 @@ import useAuth from "../../Hooks/useAuth";
 import Navbar from "../Navbar/Navbar";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+
+
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
+import Swal from "sweetalert2";
+import { useQuery } from "@tanstack/react-query";
+
 
 
 const AddJobs = () => {
+  const [inputDate, setInputDate] = useState('');
+
+
     const {user} = useAuth()
     const [categories, setCategories] = useState([]);
     const [catItem, setCatItem] = useState('digital-marketing')
+    const navigate = useNavigate()
+
+
     // console.log(categories)
-   useEffect( ()=>{
-        axios('http://localhost:5000/category')
-        .then(res => {
-            setCategories(res.data)
+  //  useEffect( ()=>{
+  //       axios('http://localhost:5000/category')
+  //       .then(res => {
+  //           setCategories(res.data)
+  //       })
+  //   } ,[])
+
+
+      const {data, isLoading} = useQuery({
+    queryKey: ['jobs'],
+    queryFn: async () =>{
+      const allCategory = await fetch('http://localhost:5000/category')
+      return await allCategory.json()
+    }
+  })
+  console.log(data)
+
+  if(isLoading){
+    return <p> Loading.....</p>
+  }
+
+    
+    const handleDateChange = (event) => {
+      const currentDate = new Date();
+      const enteredDate = new Date(event.target.value)
+
+      if (!isNaN(enteredDate) && enteredDate < currentDate) {
+       
+        return Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Your Date Can Not Be Earlier The Toady",
         })
-    } ,[])
+        
+      } 
+      else {
+        setInputDate(event.target.value)
+      }
+    };
+    console.log(inputDate)
 
     // console.log(catItem)
     const handleSubmitJobs = event =>{
@@ -24,11 +73,11 @@ const AddJobs = () => {
         const category = catItem
         const employerEmail = user?.email
         const title = form.title.value
-        const date = form.date.value 
+        const date = inputDate
         const minimumPrice = form.minimum.value 
         const maximumPrice = form.maximum.value
         const description = form.description.value
-
+        console.log(date)
         const addJob = {
             category,
             employerEmail,
@@ -48,7 +97,20 @@ const AddJobs = () => {
             }
 
         })
+        navigate('/postedJobs')
     }   
+
+  // console.log(inputDate)
+    // const compareDates = () => {
+    //   const currentDate = new Date();
+    //   const enteredDate = new Date(inputDate);
+  
+    //   if (!isNaN(enteredDate) && enteredDate >= currentDate) {
+    //     setComparisonResult('The entered date is greater than or equal to today.');
+    //   } else {
+    //     setComparisonResult('The entered date is earlier than today.');
+    //   }
+    // };
 
     return (
         <div>
@@ -101,15 +163,27 @@ const AddJobs = () => {
                 <span className="label-text text-orange-300  text-lg font-semibold " data-aos="fade-up"> Deadline</span>
               </label>
               <label className="input-group">
-                <input
+
+              <input
+        type="date"
+        id="input"
+        className="input input-bordered w-full"
+        name="date"
+        onChange={handleDateChange}
+      />
+        
+
+                {/* <input
                   type="date"
                   name="date"
                   required
-                 
+                  
+                  min ={new Date()}
+                  max={2023-11-28}
                   placeholder="date"
                   className="input input-bordered w-full"
                   data-aos="fade-up"
-                />
+                /> */}
               </label>
             </div>
             <div className="form-control md:w-1/2">
@@ -121,7 +195,7 @@ const AddJobs = () => {
               name="" id="">
                 <option value="" disabled >Chose One</option>
                {
-                categories.map( item =>  <option key={item._id} value={item.category_name} > {item.category_name} </option> )
+                data?.map( item =>  <option key={item._id}  value={item.category_name} > {item.category_name} </option> )
                }
               </select>
             </div>

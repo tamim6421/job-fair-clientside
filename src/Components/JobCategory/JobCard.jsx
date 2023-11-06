@@ -1,7 +1,7 @@
 import { MdWorkspacesFilled ,MdOutlinePriceChange, MdDateRange, MdDescription } from "react-icons/md";
 import { Link } from "react-router-dom";
 const JobCard = ({ job }) => {
-  const { category, jobTitle, priceRange, shortDescription, deadline , _id } = job;
+  const { category, jobTitle, priceRange, maximumPrice,minimumPrice, shortDescription, deadline , _id } = job;
   //console.log(job);
   return (
     <div>
@@ -15,8 +15,8 @@ const JobCard = ({ job }) => {
         
         <div className="card-body">
           <div className="space-y-6 ">
-          <h2 className="card-title text-2xl"> <MdOutlinePriceChange></MdOutlinePriceChange>   Price Range: <span> {priceRange} </span> </h2>
-          <h1 className="flex items-center text-xl"> <MdDateRange className="text-3xl"></MdDateRange>  Dead Line : <span>{deadline} </span> </h1>
+          <h2 className="card-title text-2xl"> <MdOutlinePriceChange></MdOutlinePriceChange>   Price Range: <span> ${maximumPrice} </span>/ <span> ${minimumPrice} </span> </h2>
+          <h1 className="flex ipriceRtems-center text-xl"> <MdDateRange className="text-3xl"></MdDateRange>  Dead Line : <span>{deadline} </span> </h1>
           <p className="flex items-center w-3/5"> <MdDescription className="text-5xl"></MdDescription> <span>{shortDescription} </span> </p>
           </div>
           <div className="card-actions  md:justify-end mb-10">

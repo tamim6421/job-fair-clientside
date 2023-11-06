@@ -3,6 +3,7 @@ import useAuth from "../../Hooks/useAuth";
 import Navbar from "../Navbar/Navbar";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const BidInputFields = () => {
   const navigate = useNavigate()
@@ -10,6 +11,23 @@ const BidInputFields = () => {
     const {user} = useAuth()
     const allJobs = JSON.parse(localStorage.getItem('jobsData'));
     console.log(allJobs)
+
+
+    const handleDateChange = (event) => {
+      const currentDate = new Date();
+      const enteredDate = new Date(event.target.value)
+
+      if (!isNaN(enteredDate) && enteredDate < currentDate) {
+       
+        return Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Your Date Can Not Be Earlier The Toady",
+        })
+        
+      } 
+    
+    };
 
     const handelSubmit = event =>{
         event.preventDefault()
@@ -73,12 +91,20 @@ const BidInputFields = () => {
               <span className="label-text">Dead Line</span>
             </label>
             <input
+        type="date"
+        id="input"
+        className="input input-bordered w-full"
+        name="date"
+        onChange={handleDateChange}
+      />
+        
+            {/* <input
               type="date"
               placeholder="Dead Line"
               name="date"
               className="input input-bordered"
               required
-            />
+            /> */}
             <label className="label">
             
             </label>

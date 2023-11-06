@@ -4,6 +4,7 @@ import useAuth from "../../Hooks/useAuth";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 
 const UpdateJobs = () => {
@@ -21,6 +22,22 @@ const UpdateJobs = () => {
     } ,[])
    
     console.log(jobs)
+
+    const handleDateChange = (event) => {
+      const currentDate = new Date();
+      const enteredDate = new Date(event.target.value)
+
+      if (!isNaN(enteredDate) && enteredDate < currentDate) {
+       
+        return Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Your Date Can Not Be Earlier The Toady",
+        })
+        
+      } 
+    
+    };
 
     const handelUpdateJobs = event =>{
         event.preventDefault()
@@ -104,7 +121,15 @@ const UpdateJobs = () => {
                 <span className="label-text text-orange-300  text-lg font-semibold " data-aos="fade-up"> Deadline</span>
               </label>
               <label className="input-group">
-                <input
+              <input
+        type="date"
+        id="input"
+        className="input input-bordered w-full"
+        name="date"
+        onChange={handleDateChange}
+      />
+        
+                {/* <input
                   type="date"
                   name="date"
                   required
@@ -112,7 +137,7 @@ const UpdateJobs = () => {
                   placeholder="date"
                   className="input input-bordered w-full"
                   data-aos="fade-up"
-                />
+                /> */}
               </label>
             </div>
             <div className="form-control md:w-1/2">

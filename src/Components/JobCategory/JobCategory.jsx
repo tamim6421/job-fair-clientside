@@ -4,6 +4,7 @@ import { Tab, Tabs, TabList } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import JobCard from './JobCard';
 import { MdDashboard } from "react-icons/md";
+import { useQueries } from '@tanstack/react-query';
 
 const JobCategory = () => {
   const [categories, setCategories] = useState([]);
@@ -14,8 +15,19 @@ const JobCategory = () => {
 
   // console.log(category)
 
+  // const data = useQueries({
+  //   queryKey: ['jobs'],
+  //   queryFn: async () =>{
+  //     const allCategory = await fetch('http://localhost:5000/category')
+  //     return await allCategory.json()
+  //   }
+  // })
+  // console.log(data)
+
+
   useEffect(() =>{
-    axios('http://localhost:5000/category').then((res) => setCategories(res.data.sort((a, b) => a < b )));
+    axios('http://localhost:5000/category')
+    .then((res) => setCategories(res.data.sort((a, b) => a < b )));
   } ,[])
 
   
