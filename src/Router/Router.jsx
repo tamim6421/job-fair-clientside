@@ -11,6 +11,7 @@ import BidInputFields from "../Components/BidInputFields/BidInputFields";
 import UpdateJobs from "../Components/AddJobs/UpdateJobs";
 import MyBids from "../Mybids/MyBids";
 import MyBidRequest from "../Mybids/MyBidRequest/MyBidRequest";
+import PrivetRoute from "../PrivetRoute/PrivetRoute";
 
 
 const router = createBrowserRouter([
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/addJobs',
-                element:<AddJobs></AddJobs>
+                element:<PrivetRoute><AddJobs></AddJobs></PrivetRoute>
             },
             {
                 path:'/postedJobs',
