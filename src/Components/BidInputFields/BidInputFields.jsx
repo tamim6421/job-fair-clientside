@@ -8,6 +8,7 @@ const BidInputFields = () => {
     const {user} = useAuth()
     const allJobs = JSON.parse(localStorage.getItem('jobsData'));
     console.log(allJobs)
+
     const handelSubmit = event =>{
         event.preventDefault()
         const form = event.target 
@@ -23,6 +24,10 @@ const BidInputFields = () => {
             allJobs
         }
         console.log(bidInfo)
+
+        if(allJobs.employerEmail === user?.email){
+          return toast.error('Can not Bid Your Worn Job')
+        }  
         
         axios.post('http://localhost:5000/bidProject', bidInfo)
         .then(data => {

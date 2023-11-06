@@ -3,10 +3,14 @@ import Navbar from "../../Navbar/Navbar";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaMoneyBill1 } from "react-icons/fa6";
 import {  MdOutlinePriceChange, MdDateRange, MdDescription } from "react-icons/md";
+import toast from "react-hot-toast";
+import useAuth from "../../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 const JobDetails = () => {
+  const {user} = useAuth()
   const jobs = useLoaderData();
-  const { jobTitle,deadline, priceRange, shortDescription} = jobs;
+  const { jobTitle,deadline, priceRange,employerEmail, shortDescription} = jobs;
 
 //   const navigate = useNavigate()
   console.log(jobs);
@@ -16,6 +20,20 @@ const JobDetails = () => {
 //  const  handlePlaceBid  = () =>{
 //     navigate(`/bidField/${jobTitle}`)
 //  }
+
+
+
+const handleBid = () =>{
+  Swal.fire({
+    icon: "error",
+    title: "Oops...",
+    text: "YOU CAN NOT BID YOUR OWN PROJECT",
+    
+  });
+    
+}
+
+
   return (
     <div>
       <Navbar></Navbar>
@@ -84,11 +102,23 @@ const JobDetails = () => {
           </div>
                 </div>
                 <div className="card-actions">
-                <Link jobs = {jobs} className="w-full"  to='/bidField'>
+               {
+                employerEmail === user?.email ? <>
+                 <Link jobs = {jobs} className="w-full"  to=''>
                 <button 
-              
-                className="btn mt-4 bg-green-500 text-white hover:text-black  w-full">Place Your Bid</button>
+                disabled
+               
+                className="btn mt-4 disabled bg-green-500 text-white hover:text-black  w-full">Place Your Bid</button>
                 </Link>
+
+                <p  onClick={handleBid} className="text-center text-orange-500 underline cursor-pointer">Info</p>
+                </> :
+                  <>  <Link jobs = {jobs} className="w-full"  to='/bidField'>
+                  <button 
+                  className="btn mt-4 disabled bg-green-500 text-white hover:text-black  w-full">Place Your Bid</button>
+                  </Link></>
+
+               }
                 </div>
               </div>
             </div>
