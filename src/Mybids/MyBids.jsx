@@ -86,7 +86,14 @@ const MyBids = () => {
             <td className={bids.status == 'Rejected'? "font-bold text-red-500" : bids.status == "Completed" ? "text-[#d900fa] font-bold": bids.status == "Pending"? 'text-blue-500 font-bold' : 'text-green-500 font-bold' }> <p className="bg-gray-200 w-[90px] text-center rounded-full py-[5px] ">{bids.status == 'Rejected' ? 'Cancelled' : bids.status}</p> </td>
             <td className="">
 
-                <button onClick={()=> handelComplete(bids._id)} className="btn btn-sm"> Complete </button>
+                {
+                    bids.status == 'Completed' ? <div>
+                        <button onClick={()=> handelComplete(bids._id)} className="btn btn-sm hidden"> Complete </button>
+                    </div> :
+                    <div>
+                        <button onClick={()=> handelComplete(bids._id)} className="btn btn-sm"> Complete </button>
+                    </div>
+                }
 
             </td>
           </tr> )
