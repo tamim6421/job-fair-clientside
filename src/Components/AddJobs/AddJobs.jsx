@@ -4,6 +4,7 @@ import Navbar from "../Navbar/Navbar";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion"
 
 
 import DatePicker from "react-datepicker";
@@ -125,10 +126,14 @@ const AddJobs = () => {
                 </title>
             </Helmet>
             <Navbar></Navbar>
+
+         
+
            <div className="text-center mt-36 mb-5">
             <Title>Added a New Job</Title>
            </div>
             <div className="shadow-lg p-5 rounded-lg ">
+        
             <form onSubmit={handleSubmitJobs} >
         <div className="md:flex gap-4  mb-8 px-4">
             <div className="form-control md:w-1/2">

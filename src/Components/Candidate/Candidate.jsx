@@ -1,5 +1,6 @@
 
 import { FaFacebookSquare, FaTwitterSquare, FaInstagram } from "react-icons/fa";
+import { motion } from "framer-motion"
 
 const Candidate = () => {
   return (
@@ -14,7 +15,13 @@ const Candidate = () => {
       </div>
 
       <div className="grid gap-5 grid-cols-1 md:grid-cols-3 ">
-        <div className="relative flex flex-col text-gray-700 bg-white shadow-md  rounded-xl bg-clip-border">
+
+
+        <motion.div 
+        initial ={{opacity : 0}}
+        animate ={{opacity : 1}}
+        transition={{delay: 1, duration: 5}}
+        className="relative flex flex-col text-gray-700 bg-white shadow-md  rounded-xl bg-clip-border">
           <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg h-80 rounded-xl bg-clip-border">
             <img src="https://i.ibb.co/DPdgsj1/istockphoto-487336206-612x612.jpg" />
           </div>
@@ -36,8 +43,13 @@ const Candidate = () => {
          
           </div>
           <button className="btn text-white bg-green-500 hover:bg-green-600">View Profile</button>
-        </div>
-        <div className="relative flex flex-col text-gray-700 bg-white shadow-md  rounded-xl bg-clip-border">
+        </motion.div>
+
+        <motion.div
+        initial ={{opacity : 0}}
+        animate ={{opacity : 1}}
+        transition={{delay: 0.5, duration: 5}}
+         className="relative flex flex-col text-gray-700 bg-white shadow-md  rounded-xl bg-clip-border">
           <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg h-80 rounded-xl bg-clip-border">
             <img className=" w-full h-full object-cover "  src="https://i.ibb.co/fMMkfkx/4a0ffae7dcdc5f1d1423bfbf192e0714.jpg" />
           </div>
@@ -59,9 +71,13 @@ const Candidate = () => {
          
           </div>
           <button className="btn text-white bg-green-500 hover:bg-green-600">View Profile</button>
-        </div>
+        </motion.div>
 
-        <div className="relative flex flex-col text-gray-700 bg-white shadow-md  rounded-xl bg-clip-border">
+        <motion.div
+        initial ={{opacity : 0}}
+        animate ={{opacity : 1}}
+        transition={{delay: 0.5, duration: 5}}
+        className="relative flex flex-col text-gray-700 bg-white shadow-md  rounded-xl bg-clip-border">
           <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg h-80 rounded-xl bg-clip-border">
             <img className=" w-full h-full object-cover " src="https://i.ibb.co/SrgwwNw/authors-day-fun.jpg" />
           </div>
@@ -84,7 +100,7 @@ const Candidate = () => {
          
           </div>
           <button className="btn text-white bg-green-500 hover:bg-green-600">View Profile</button>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

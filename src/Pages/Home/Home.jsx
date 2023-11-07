@@ -7,6 +7,7 @@ import JobCategory from "../../Components/JobCategory/JobCategory";
 import Navbar from "../../Components/Navbar/Navbar";
 import Banner from "./Banner/Banner";
 import DreamJobs from "../../Components/DreamJobs/DreamJobs";
+import Motion from "../../Components/Motion/Motion";
 
 
 
@@ -28,6 +29,7 @@ const Home = () => {
             <DreamJobs></DreamJobs>
             <Candidate></Candidate>
             <HowItWorks></HowItWorks>
+            <Motion></Motion>
             <Footer></Footer>
         </div>
     );
