@@ -12,19 +12,19 @@ const MyBids = () => {
     const [myBids, setMyBids] = useState([])
     const axiosSecure = useAxiosSec()
 
-    const url = `/bidProject?email=${user?.email}`
-
+    // const url = `/bidProject?email=${user?.email}`
+    const url = `http://localhost:5000/bidProject?email=${user?.email}`
     useEffect( ()=>{
-        axiosSecure.get(url)
-        .then(res => {
-            setMyBids(res.data) 
-        })
+        // axiosSecure.get(url)
+        // .then(res => {
+        //     setMyBids(res.data) 
+        // })
 
         
-        // axios(url, {withCredentials: true})
-        // .then(res => {
-        //     setMyBids(res.data)
-        // })
+        axios(url, {withCredentials: true})
+        .then(res => {
+            setMyBids(res.data)
+        })
     } ,[url, axiosSecure])
 
     console.log(myBids)
@@ -42,10 +42,16 @@ const MyBids = () => {
         .then(res => res.json())
         .then(data =>{
             console.log(data)
-            setMyBids(data)
+            // setMyBids(data)
             if(data.modifiedCount > 0){
                 toast.success('Bid Completed')
                 
+
+                     const remaining = myBids.filter( stat => stat._id !== id)
+                const updated =myBids.find(status => status._id === id)
+                updated.status = 'Completed'
+                const newStatus = [updated,  ...remaining]
+                setMyBids(newStatus)
             }
         })
 
@@ -66,8 +72,8 @@ const MyBids = () => {
   <table className="table">
     {/* head */}
     <thead>
-      <tr>
-        <th></th>
+      <tr className="text-xl text-green-500">
+        <th> Number</th>
         <th>Job Title</th>
         <th>Email</th>
         <th>Deadline</th>
@@ -78,8 +84,8 @@ const MyBids = () => {
     <tbody>
       {/* row 1 */}
      {
-        myBids?.map((bids, i) =>  <tr key={bids._id}>
-            <th>{i+1}</th>
+        myBids?.map((bids, i) =>  <tr className="bg-gray-50" key={bids._id}>
+            <th className="text-gray-400 font-semibold">{i+1}</th>
             <td> {bids.allJobs.jobTitle} </td>
             <td>{bids.allJobs.employerEmail}</td>
             <td>{bids.date}</td>

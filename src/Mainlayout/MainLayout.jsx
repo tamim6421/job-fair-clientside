@@ -3,7 +3,7 @@ import { Toaster } from 'react-hot-toast';
 
 const MainLayout = () => {
     return (
-        <div>
+        <div className="font-manrope text-gray-500">
             
            <div>
             <Outlet></Outlet>

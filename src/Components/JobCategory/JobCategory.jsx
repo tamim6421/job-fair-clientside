@@ -5,6 +5,7 @@ import 'react-tabs/style/react-tabs.css';
 import JobCard from './JobCard';
 import { MdDashboard } from "react-icons/md";
 import { useQueries } from '@tanstack/react-query';
+import { BsArrowRight } from "react-icons/bs";
 
 const JobCategory = () => {
   const [categories, setCategories] = useState([]);
@@ -53,8 +54,14 @@ const JobCategory = () => {
 
   return (
     <div className='my-36'>
+         <div>
+         <h2 className='text-3xl text-center font-bold drop-shadow-md text-green-400 '>Top Featured <span>Jobs</span> </h2>
+      <h1 className='text-center mb-7 mt-2 text-xl text-gray-400 font-bold drop-shadow-md'>
+        
+        <span className='flex justify-center gap-3 items-center'>  Browse Category<BsArrowRight className='text-orange-500'></BsArrowRight></span> </h1>
+         </div>
       <Tabs className='bg-gray-50' >
-        <TabList className='bg-green-100 font-bold text-2xl py-1 text-center'>
+        <TabList className='bg-green-400 font-bold text-2xl py-5 text-white max-w-max px-10 mx-auto rounded-full text-center'>
           
           {categories.map((cat) => (
             <Tab   
@@ -70,7 +77,7 @@ const JobCategory = () => {
 
      <div className='my-20'>
       <div className='text-center my-10'>
-        <h2 className='text-3xl text-green-400 font-semibold '>Top Featured <span>Jobs</span> </h2>
+    
 
       </div>
      {allJobs?.map((job) => (

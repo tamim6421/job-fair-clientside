@@ -3,16 +3,20 @@ import Navbar from "../../Navbar/Navbar";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaMoneyBill1 } from "react-icons/fa6";
 import {  MdOutlinePriceChange, MdDateRange, MdDescription } from "react-icons/md";
+import details from '../../../assets/details.json'
+import task from '../../../assets/task.svg'
+
 
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import daisyui from "daisyui";
+import Lottie from "lottie-react";
 
 const JobDetails = () => {
   const {user} = useAuth()
   const jobs = useLoaderData();
-  const { jobTitle,deadline, priceRange,employerEmail, shortDescription} = jobs;
+  const { jobTitle,deadline, priceRange,employerEmail, maximumPrice, minimumPrice, shortDescription} = jobs;
   const navigate = useNavigate()
 //   const navigate = useNavigate()
   console.log(jobs);
@@ -53,18 +57,14 @@ const handelDate = () =>{
       <Navbar></Navbar>
 
       <div>
-        <div className="min-h-[300px] bg-base-100 p-2 mt-20 shadow-lg">
+        <div className="min-h-[300px] bg-green-100 p-2 mt-20 shadow-lg">
           <div className=" px-20 gap-9 flex flex-col md:flex-row md:items-center ">
             <div>
-              <img
-                className="mt-20"
-                src="https://i.ibb.co/fSNZvJ5/Rectangle-2-1.png"
-                alt=""
-              />
+            <Lottie animationData={details}></Lottie>
             </div>
 
             <div className="space-y-3">
-              <h1 className="text-3xl text-green-400 font-bold">
+              <h1 className="text-3xl text-green-400 drop-shadow-lg font-bold">
                 {" "}
                 {jobTitle}{" "}
               </h1>
@@ -77,9 +77,9 @@ const handelDate = () =>{
                 <FaMoneyBill1></FaMoneyBill1> <span>40K-50K</span>{" "}
               </p>
               <div className="flex gap-4">
-                <button className="btn bg-green-400"> Full Time </button>
-                <button className="btn btn-warning"> Urgent </button>
-                <button className="btn bg-rose-300">Remote </button>
+                <button className="btn drop-shadow-lg bg-green-400"> Full Time </button>
+                <button className="btn drop-shadow-lg btn-warning"> Urgent </button>
+                <button className="btn drop-shadow-lg bg-rose-300">Remote </button>
               </div>
             </div>
 
@@ -87,8 +87,8 @@ const handelDate = () =>{
         </div>
 
         <div className=" flex flex-col md:flex-row my-36 gap-5 h-[screen]">
-          <div className=" flex-[2] p-4 bg-green-50">
-            <h1 className="text-2xl font-bold mb-3 ">Job Summery</h1>
+          <div className=" flex-[2] p-4 bg-green-100">
+            <h1 className="text-2xl drop-shadow-lg text-green-500 font-bold mb-3 ">Job Summery</h1>
             <p>
               We are one of the leading manufacturers and exporters of finished
               leather goods from Calcutta, India for the last 20 years. We are a
@@ -98,20 +98,22 @@ const handelDate = () =>{
             </p>
 
             <div className="mt-10">
-              <img src="https://i.ibb.co/bBFPBVW/Rectangle-2-3.png" alt="" />
+              <img src={task} alt="" 
+              className="w-3/4" />
             </div>
           </div>
 
 
           <div className="flex-[1]">
-            <div className="card bg-base-100 shadow-xl">
+            <div className="card bg-green-100 shadow-xl">
               <div className="card-body">
-                <h2 className="card-title  font-bold ">{jobTitle}</h2>
+                <h2 className="card-title drop-shadow-lg text-2xl text-green-400 font-bold ">{jobTitle}</h2>
                 <hr />
                 <div>
                 <div className="space-y-6 ">
-          <h2 className="card-title text-xl"> <MdOutlinePriceChange></MdOutlinePriceChange>   Price Range: <span> {priceRange} </span> </h2>
-          <h1 className="flex items-center text-xl"> <MdDateRange className="text-2xl"></MdDateRange>  Dead Line : <span>{deadline} </span> </h1>
+          <h2 className="card-title text-xl"> <MdOutlinePriceChange></MdOutlinePriceChange>   Maximum Price: <span> {maximumPrice} </span> </h2>
+          <h2 className="card-title text-xl"> <MdOutlinePriceChange></MdOutlinePriceChange>   Minimum Price: <span> {minimumPrice} </span> </h2>
+          <h1 className="flex items-center gap-2 text-xl"> <MdDateRange className="text-2xl"></MdDateRange>  Dead Line : <span>{deadline} </span> </h1>
           <p className="flex items-center "> <MdDescription className="text-5xl"></MdDescription> <span>{shortDescription} </span> </p>
           </div>
                 </div>
