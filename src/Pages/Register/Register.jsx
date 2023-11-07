@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import { FaEye,FaEyeSlash  } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
+import SocialLogin from "../Login/SocialLogin/SocialLogin";
 
 const Register = () => {
     const {createUser, handleUpdateProfile} = useAuth()
@@ -147,7 +148,7 @@ const Register = () => {
                <p className='text-white mt-4'>Already have an account? Please  <Link to='/login'>   <span className='text-rose-600 font-semibold underline'> Login</span> </Link></p>
              </div>
              <div>
-                {/* <SocialLogin></SocialLogin> */}
+               <SocialLogin></SocialLogin>
              </div>
            </form>
          </div>

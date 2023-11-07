@@ -4,6 +4,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import { FaEye,FaEyeSlash  } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
 import toast from 'react-hot-toast';
+import SocialLogin from "./SocialLogin/SocialLogin";
 
 const Login = () => {
     const{signInUser} = useAuth()
@@ -99,7 +100,7 @@ const Login = () => {
                    <p className='text-white mt-5'>New This Site? Please <Link to='/register'>   <span className='text-rose-300 underline font-semibold'> Register</span> </Link></p>
                  </div>
                  <div>
-                   {/* <SocialLogin></SocialLogin> */}
+                 <SocialLogin></SocialLogin>
                 </div>
                </form>
              </div>
