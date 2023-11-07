@@ -67,7 +67,7 @@ const PostedJobs = () => {
                 </title>
             </Helmet>
             <Navbar></Navbar>
-            <h1 className="text-center my-20">
+            <h1 className="text-center my-20" data-aos="fade-down">
                 <Title> Your Posted jobs</Title>
             </h1>
             

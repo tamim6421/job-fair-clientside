@@ -14,19 +14,19 @@ const MyBids = () => {
     const [myBids, setMyBids] = useState([])
     const axiosSecure = useAxiosSec()
 
-    // const url = `/bidProject?email=${user?.email}`
-    const url = `http://localhost:5000/bidProject?email=${user?.email}`
+    const url = `/bidProject?email=${user?.email}`
+    // const url = `http://localhost:5000/bidProject?email=${user?.email}`
     useEffect( ()=>{
-        // axiosSecure.get(url)
-        // .then(res => {
-        //     setMyBids(res.data) 
-        // })
+        axiosSecure.get(url)
+        .then(res => {
+            setMyBids(res.data) 
+        })
 
         
-        axios(url, {withCredentials: true})
-        .then(res => {
-            setMyBids(res.data)
-        })
+        // axios(url, {withCredentials: true})
+        // .then(res => {
+        //     setMyBids(res.data)
+        // })
     } ,[url, axiosSecure])
 
     console.log(myBids)
@@ -67,7 +67,7 @@ const MyBids = () => {
                 </title>
             </Helmet>
             <Navbar></Navbar>
-           <div className="mt-36 mb-10 text-center">
+           <div className="mt-36 mb-10 text-center" data-aos="fade-up">
             <Title>Your Bid Jobs</Title>
            </div>
 
@@ -75,7 +75,7 @@ const MyBids = () => {
             <div className="overflow-x-auto">
   <table className="table">
     {/* head */}
-    <thead className=" bg-green-500 rounded-full  text-white rounded-ful">
+    <thead className=" bg-green-500 rounded-full  text-white rounded-ful" data-aos="flip-down" >
       <tr className="text-xl">
         <th> Number</th>
         <th>Job Title</th>

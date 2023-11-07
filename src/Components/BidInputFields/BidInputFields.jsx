@@ -82,7 +82,7 @@ const BidInputFields = () => {
         <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Price</span>
+              <span className="label-text text-green-500 text-lg" >Price</span>
             </label>
             <input
               type="number"
@@ -94,7 +94,7 @@ const BidInputFields = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Dead Line</span>
+              <span className="label-text  text-green-500 text-lg">Dead Line</span>
             </label>
             <input
         type="date"
@@ -117,7 +117,7 @@ const BidInputFields = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text"> Your Email</span>
+              <span className="label-text  text-green-500 text-lg"> Your Email</span>
             </label>
             <input
               type="email"
@@ -130,7 +130,7 @@ const BidInputFields = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Buyer Email</span>
+              <span className="label-text text-green-500 text-lg">Buyer Email</span>
             </label>
             <input
               type="email"

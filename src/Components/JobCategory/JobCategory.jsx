@@ -55,13 +55,13 @@ const JobCategory = () => {
   return (
     <div className='my-36'>
          <div>
-         <h2 className='text-3xl text-center font-bold drop-shadow-md text-green-400 '>Top Featured <span>Jobs</span> </h2>
+         <h2 className='text-3xl text-center font-bold drop-shadow-md text-green-400 ' data-aos="fade-up">Top Featured <span>Jobs</span> </h2>
       <h1 className='text-center mb-7 mt-2 text-xl text-gray-400 font-bold drop-shadow-md'>
         
-        <span className='flex justify-center gap-3 items-center'>  Browse Category<BsArrowRight className='text-orange-500'></BsArrowRight></span> </h1>
+        <span className='flex justify-center gap-3 items-center' data-aos="fade-down">  Browse Category<BsArrowRight className='text-orange-500'></BsArrowRight></span> </h1>
          </div>
       <Tabs className='bg-gray-50' >
-        <TabList className='bg-green-400 font-bold text-2xl py-5 text-white max-w-max px-10 mx-auto rounded-full text-center'>
+        <TabList className='bg-green-400 box font-bold text-2xl py-5 text-white max-w-max px-10 mx-auto rounded-full text-center'>
           
           {categories.map((cat) => (
             <Tab   

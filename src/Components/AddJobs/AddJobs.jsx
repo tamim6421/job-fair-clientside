@@ -129,7 +129,7 @@ const AddJobs = () => {
 
          
 
-           <div className="text-center mt-36 mb-5">
+           <div className="text-center mt-36 mb-5" data-aos="fade-up" >
             <Title>Added a New Job</Title>
            </div>
             <div className="shadow-lg p-5 rounded-lg ">
@@ -138,7 +138,7 @@ const AddJobs = () => {
         <div className="md:flex gap-4  mb-8 px-4">
             <div className="form-control md:w-1/2">
               <label className="label">
-                <span className="label-text text-orange-300 text-lg font-semibold  " data-aos="fade-up">Email Of The Employer </span>
+                <span className="label-text text-green-500 text-lg font-semibold  " data-aos="fade-up">Email Of The Employer </span>
               </label>
               <label className="input-group">
                 <input
@@ -156,7 +156,7 @@ const AddJobs = () => {
             </div>
             <div className="form-control md:w-1/2">
               <label className="label">
-                <span className="label-text text-orange-300  text-lg font-semibold " data-aos="fade-down" >Job Title</span>
+                <span className="label-text text-green-500  text-lg font-semibold " data-aos="fade-down" >Job Title</span>
               </label>
               <label className="input-group">
                 <input
@@ -177,7 +177,7 @@ const AddJobs = () => {
           <div className="md:flex gap-4 mb-8 px-4">
             <div className="form-control md:w-1/2">
               <label className="label">
-                <span className="label-text text-orange-300  text-lg font-semibold " data-aos="fade-up"> Deadline</span>
+                <span className="label-text text-green-500  text-lg font-semibold " data-aos="fade-up"> Deadline</span>
               </label>
               <label className="input-group">
 
@@ -206,7 +206,7 @@ const AddJobs = () => {
             </div>
             <div className="form-control md:w-1/2">
               <label className="label">
-                <span className="label-text text-orange-300  text-lg font-semibold " data-aos="fade-down">Category</span>
+                <span className="label-text text-green-500  text-lg font-semibold " data-aos="fade-down">Category</span>
               </label>
               <select className="input input-bordered "
               onChange={ (e) => setCatItem(e.target.value)}
@@ -223,7 +223,7 @@ const AddJobs = () => {
           <div className="md:flex gap-4 mb-8 px-4">
             <div className="form-control md:w-1/2">
               <label className="label">
-                <span className="label-text text-orange-300 text-lg font-semibold " data-aos="fade-up">Minimum Price</span>
+                <span className="label-text text-green-500 text-lg font-semibold " data-aos="fade-up">Minimum Price</span>
               </label>
               <label className="input-group">
                 <input
@@ -239,7 +239,7 @@ const AddJobs = () => {
             </div>
             <div className="form-control md:w-1/2">
               <label className="label">
-                <span className="label-text text-orange-300  text-lg font-semibold " data-aos="fade-down">Maximum Price</span>
+                <span className="label-text text-green-500  text-lg font-semibold " data-aos="fade-down">Maximum Price</span>
               </label>
               <label className="input-group">
                 <input
@@ -258,7 +258,7 @@ const AddJobs = () => {
           <div className="md:flex gap-4 mb-8 px-4">
             <div className="form-control w-full">
               <label className="label">
-                <span className="label-text text-orange-300  text-lg font-semibold " data-aos="fade-up">Description</span>
+                <span className="label-text text-green-500  text-lg font-semibold " data-aos="fade-up">Description</span>
               </label>
               <textarea className="textarea textarea-accent" name="description" placeholder="text here"></textarea>
             </div>

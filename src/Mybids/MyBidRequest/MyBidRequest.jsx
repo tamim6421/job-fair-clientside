@@ -25,11 +25,12 @@ const MyBidRequest = () => {
         //     setAllRequest(res.data)
         // })
        
-        axios.get('http://localhost:5000/bidProject',)
+        axios.get('http://localhost:5000/bidProject')
         .then(res => {
             setAllRequest(res.data)
         })
-    } ,[])
+    } ,[user?.email])
+
 
 
     // console.log(allRequest)
@@ -118,7 +119,7 @@ const MyBidRequest = () => {
                 </title>
             </Helmet>
             <Navbar></Navbar>
-            <h1>my bid request</h1>
+            
 
             <div>
             <div className="overflow-x-auto">
