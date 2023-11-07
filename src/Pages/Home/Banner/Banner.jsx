@@ -19,7 +19,7 @@ Right now. Right here.</p>
                 </div>
             </div>
             <div className='flex-[1]'>
-            <Lottie animationData={animation} loop={false} ></Lottie>
+            <Lottie animationData={animation} loop={true} ></Lottie>
             </div>
              
         </div>

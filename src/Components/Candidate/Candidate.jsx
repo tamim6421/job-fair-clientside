@@ -13,7 +13,7 @@ const Candidate = () => {
         </p>
       </div>
 
-      <div className="grid gap-5 grid-cols-1 md:grid-cols-3">
+      <div className="grid gap-5 grid-cols-1 md:grid-cols-3 ">
         <div className="relative flex flex-col text-gray-700 bg-white shadow-md  rounded-xl bg-clip-border">
           <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg h-80 rounded-xl bg-clip-border">
             <img src="https://i.ibb.co/DPdgsj1/istockphoto-487336206-612x612.jpg" />
@@ -22,63 +22,68 @@ const Candidate = () => {
             <h4 className="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
               Natalie Paisley
             </h4>
-            <p className="block font-sans text-base antialiased font-medium leading-relaxed text-transparent bg-gradient-to-tr from-pink-600 to-pink-400 bg-clip-text">
-              CEO / Co-Founder
+            <p className="block text-green-500">
+            Full Stack Developer
             </p>
           </div>
           <div className="flex justify-center p-6 pt-2 gap-7">
            
+          <a href="">   <FaFacebookSquare className="text-3xl text-blue-500"></FaFacebookSquare></a>
+            <a href=""> <FaTwitterSquare className="text-3xl text-sky-500" ></FaTwitterSquare></a>
+            <a href=""> <FaInstagram className="text-3xl text-orange-500" ></FaInstagram> </a>
             
-           <a href="">   <FaFacebookSquare className="text-3xl"></FaFacebookSquare></a>
-            <a href=""> <FaTwitterSquare className="text-3xl" ></FaTwitterSquare></a>
-            <a href=""> <FaInstagram className="text-3xl" ></FaInstagram> </a>
             
          
           </div>
+          <button className="btn text-white bg-green-500 hover:bg-green-600">View Profile</button>
         </div>
         <div className="relative flex flex-col text-gray-700 bg-white shadow-md  rounded-xl bg-clip-border">
           <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg h-80 rounded-xl bg-clip-border">
-            <img src="https://i.ibb.co/DPdgsj1/istockphoto-487336206-612x612.jpg" />
+            <img className=" w-full h-full object-cover "  src="https://i.ibb.co/fMMkfkx/4a0ffae7dcdc5f1d1423bfbf192e0714.jpg" />
           </div>
           <div className="p-6 text-center">
             <h4 className="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-              Natalie Paisley
+            Catherine K. Gordon
             </h4>
-            <p className="block font-sans text-base antialiased font-medium leading-relaxed text-transparent bg-gradient-to-tr from-pink-600 to-pink-400 bg-clip-text">
-              CEO / Co-Founder
+            <p className="block text-green-500">
+            Frontend Developer
             </p>
           </div>
           <div className="flex justify-center p-6 pt-2 gap-7">
            
+          <a href="">   <FaFacebookSquare className="text-3xl text-blue-500"></FaFacebookSquare></a>
+            <a href=""> <FaTwitterSquare className="text-3xl text-sky-500" ></FaTwitterSquare></a>
+            <a href=""> <FaInstagram className="text-3xl text-orange-500" ></FaInstagram> </a>
             
-           <a href="">   <FaFacebookSquare className="text-3xl"></FaFacebookSquare></a>
-            <a href=""> <FaTwitterSquare className="text-3xl" ></FaTwitterSquare></a>
-            <a href=""> <FaInstagram className="text-3xl" ></FaInstagram> </a>
             
          
           </div>
+          <button className="btn text-white bg-green-500 hover:bg-green-600">View Profile</button>
         </div>
+
         <div className="relative flex flex-col text-gray-700 bg-white shadow-md  rounded-xl bg-clip-border">
           <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg h-80 rounded-xl bg-clip-border">
-            <img src="https://i.ibb.co/DPdgsj1/istockphoto-487336206-612x612.jpg" />
+            <img className=" w-full h-full object-cover " src="https://i.ibb.co/SrgwwNw/authors-day-fun.jpg" />
           </div>
           <div className="p-6 text-center">
             <h4 className="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-              Natalie Paisley
+              Mr Abul
             </h4>
-            <p className="block font-sans text-base antialiased font-medium leading-relaxed text-transparent bg-gradient-to-tr from-pink-600 to-pink-400 bg-clip-text">
-              CEO / Co-Founder
+          
+            <p className="block text-green-500">
+            Backend Developer
             </p>
           </div>
           <div className="flex justify-center p-6 pt-2 gap-7">
            
             
-           <a href="">   <FaFacebookSquare className="text-3xl"></FaFacebookSquare></a>
-            <a href=""> <FaTwitterSquare className="text-3xl" ></FaTwitterSquare></a>
-            <a href=""> <FaInstagram className="text-3xl" ></FaInstagram> </a>
+           <a href="">   <FaFacebookSquare className="text-3xl text-blue-500"></FaFacebookSquare></a>
+            <a href=""> <FaTwitterSquare className="text-3xl text-sky-500" ></FaTwitterSquare></a>
+            <a href=""> <FaInstagram className="text-3xl text-orange-500" ></FaInstagram> </a>
             
          
           </div>
+          <button className="btn text-white bg-green-500 hover:bg-green-600">View Profile</button>
         </div>
       </div>
     </div>
