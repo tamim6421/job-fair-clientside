@@ -4,9 +4,14 @@ import Navbar from "../Navbar/Navbar";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useRef } from "react";
+import { useState } from "react";
 
 const BidInputFields = () => {
+  const [inputDate, setInputDate] = useState('');
   const navigate = useNavigate()
+  const inputRef = useRef();
+
  
     const {user} = useAuth()
     const allJobs = JSON.parse(localStorage.getItem('jobsData'));
@@ -18,22 +23,23 @@ const BidInputFields = () => {
       const enteredDate = new Date(event.target.value)
 
       if (!isNaN(enteredDate) && enteredDate < currentDate) {
-       
+        inputRef.current.value = '';
         return Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "Your Date Can Not Be Earlier The Toady",
+          text: "Your Date Can not be Earlier than Today",
         })
         
       } 
-    
+      else {
+        setInputDate(event.target.value)
+      }
     };
-
     const handelSubmit = event =>{
         event.preventDefault()
         const form = event.target 
         const price = form.price.value 
-        const date = form.date.value 
+        const date = inputDate
         const email = user?.email
         const bidInfo = {
             email ,
@@ -93,11 +99,11 @@ const BidInputFields = () => {
             <input
         type="date"
         id="input"
+        ref={inputRef}
         className="input input-bordered w-full"
         name="date"
         onChange={handleDateChange}
       />
-        
             {/* <input
               type="date"
               placeholder="Dead Line"

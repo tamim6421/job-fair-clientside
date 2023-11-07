@@ -5,9 +5,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import { useRef } from "react";
 
 
 const UpdateJobs = () => {
+  const [inputDate, setInputDate] = useState('');
+  const inputRef = useRef();
     const jobs = useLoaderData()
     const { jobTitle,deadline, priceRange, shortDescription, _id, category,maximumPrice,minimumPrice} = jobs;
   const {user} = useAuth()
@@ -28,15 +31,17 @@ const UpdateJobs = () => {
       const enteredDate = new Date(event.target.value)
 
       if (!isNaN(enteredDate) && enteredDate < currentDate) {
-       
+        inputRef.current.value = '';
         return Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "Your Date Can Not Be Earlier The Toady",
+          text: "Your Date Can not be Earlier than Today",
         })
         
       } 
-    
+      else {
+        setInputDate(event.target.value)
+      }
     };
 
     const handelUpdateJobs = event =>{
@@ -124,6 +129,7 @@ const UpdateJobs = () => {
               <input
         type="date"
         id="input"
+        ref={inputRef}
         className="input input-bordered w-full"
         name="date"
         onChange={handleDateChange}
