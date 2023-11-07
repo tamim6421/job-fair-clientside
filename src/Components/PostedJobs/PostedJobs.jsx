@@ -6,6 +6,8 @@ import PostedJobCard from "./PostedJobCard";
 import Swal from "sweetalert2";
 import useAxiosSec from "../../Hooks/useAxiosSec";
 import { Helmet } from "react-helmet-async";
+import Title from "../Title/Title";
+import Footer from "../Footer/Footer";
 
 const PostedJobs = () => {
     const {user} = useAuth()
@@ -65,7 +67,10 @@ const PostedJobs = () => {
                 </title>
             </Helmet>
             <Navbar></Navbar>
-            <h1 className="text-3xl font-semibold text-center my-20">Posted jobs</h1>
+            <h1 className="text-center my-20">
+                <Title> Your Posted jobs</Title>
+            </h1>
+            
             <div>
                 {
                     jobs?.map(data => <PostedJobCard 
@@ -73,6 +78,7 @@ const PostedJobs = () => {
                          key={data._id} data={data}></PostedJobCard> )
                 }
             </div>
+            <Footer></Footer>
         </div>
     );
 };

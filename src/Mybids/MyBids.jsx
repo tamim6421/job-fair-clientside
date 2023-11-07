@@ -5,6 +5,8 @@ import useAuth from "../Hooks/useAuth";
 import useAxiosSec from "../Hooks/useAxiosSec";
 import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
+import Title from "../Components/Title/Title";
+import Footer from "../Components/Footer/Footer";
 
 
 const MyBids = () => {
@@ -65,14 +67,16 @@ const MyBids = () => {
                 </title>
             </Helmet>
             <Navbar></Navbar>
-            <h1 className="text-center text-3xl font-bold my-20">Your Bids jobs</h1>
+           <div className="mt-36 mb-10 text-center">
+            <Title>Your Bid Jobs</Title>
+           </div>
 
             <div>
             <div className="overflow-x-auto">
   <table className="table">
     {/* head */}
-    <thead>
-      <tr className="text-xl text-green-500">
+    <thead className=" bg-green-500 rounded-full  text-white rounded-ful">
+      <tr className="text-xl">
         <th> Number</th>
         <th>Job Title</th>
         <th>Email</th>
@@ -84,20 +88,20 @@ const MyBids = () => {
     <tbody>
       {/* row 1 */}
      {
-        myBids?.map((bids, i) =>  <tr className="bg-gray-50" key={bids._id}>
+        myBids?.map((bids, i) =>  <tr className="bg-green-50" key={bids._id}>
             <th className="text-gray-400 font-semibold">{i+1}</th>
             <td> {bids.allJobs.jobTitle} </td>
             <td>{bids.allJobs.employerEmail}</td>
             <td>{bids.date}</td>
-            <td className={bids.status == 'Rejected'? "font-bold text-red-500" : bids.status == "Completed" ? "text-[#d900fa] font-bold": bids.status == "Pending"? 'text-blue-500 font-bold' : 'text-green-500 font-bold' }> <p className="bg-gray-200 w-[90px] text-center rounded-full py-[5px] ">{bids.status == 'Rejected' ? 'Cancelled' : bids.status}</p> </td>
+            <td className={bids.status == 'Rejected'? "font-bold text-red-500" : bids.status == "Completed" ? "text-[#d900fa] font-bold": bids.status == "Pending"? 'text-blue-500 font-bold' : 'text-green-500  font-bold' }> <p className="bg-gray-200 w-[90px] text-center rounded-full py-[5px] ">{bids.status == 'Rejected' ? 'Cancelled' : bids.status}</p> </td>
             <td className="">
 
                 {
                     bids.status == 'Completed' ? <div>
-                        <button onClick={()=> handelComplete(bids._id)} className="btn btn-sm hidden"> Complete </button>
+                        <button onClick={()=> handelComplete(bids._id)} className="btn btn-sm bt-success bg-green-500 text-white hidden"> Complete </button>
                     </div> :
                     <div>
-                        <button onClick={()=> handelComplete(bids._id)} className="btn btn-sm"> Complete </button>
+                        <button onClick={()=> handelComplete(bids._id)} className="btn btn-success bg-green-500 text-white  btn-sm"> Complete </button>
                     </div>
                 }
 
@@ -109,6 +113,7 @@ const MyBids = () => {
   </table>
 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

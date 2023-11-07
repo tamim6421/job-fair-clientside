@@ -6,6 +6,8 @@ import { AiTwotoneMail } from "react-icons/ai";
 import Navbar from '../../Components/Navbar/Navbar';
 import Title from "../../Components/Title/Title";
 import { Helmet } from "react-helmet-async";
+import contact from "../../assets/contact.svg"
+import Footer from "../../Components/Footer/Footer";
 
 const ContactUs = () => {
     return (
@@ -24,10 +26,10 @@ const ContactUs = () => {
             <div className="grid gap-2 md:grid-cols-3 mt-20">
         <div className="card  "  data-aos="fade-right">
           <figure className="px-10 pt-5">
-          <BiSolidPhoneCall className="text-5xl text-yellow-400"></BiSolidPhoneCall>
+          <BiSolidPhoneCall className="text-5xl text-green-500"></BiSolidPhoneCall>
           </figure>
           <div className="card-body items-center text-center">
-            <h2 className="card-title text-rose-300">Call Us</h2>
+            <h2 className="card-title text-green-500">Call Us</h2>
             <p>+987 092 291 091</p>
             <p>+94987 2923421 0941</p>
           </div>
@@ -35,21 +37,21 @@ const ContactUs = () => {
         <div className="card  "  data-aos="fade-left">
           <figure className="px-10 pt-10">
          
-        <AiTwotoneMail className="text-5xl text-yellow-400"></AiTwotoneMail>
+        <AiTwotoneMail className="text-5xl  text-green-500"></AiTwotoneMail>
           </figure>
           <div className="card-body items-center text-center">
           
-            <h2 className="card-title text-rose-300">Connect With Email</h2>
+            <h2 className="card-title text-green-500">Connect With Email</h2>
             <p>support@templaza.com</p>
             <p>support@templaza.com</p>
           </div>
         </div>
         <div className="card"  data-aos="fade-up">
           <figure className="px-10 pt-10">
-         <FaLocationDot className="text-5xl text-yellow-400"></FaLocationDot>
+         <FaLocationDot className="text-5xl  text-green-500"></FaLocationDot>
           </figure>
           <div className="card-body items-center text-center">
-            <h2 className="card-title text-rose-300">Our Office Location</h2>
+            <h2 className="card-title text-green-500">Our Office Location</h2>
             <p>Electrical Product Company</p>
             <p>London, UK, 10, Friks, Avenue</p>
           </div>
@@ -66,13 +68,13 @@ const ContactUs = () => {
         <div className="hero min-h-screen">
           <div className="hero-content  flex-col lg:flex-row-reverse">
             <div className="text-center  lg:text-left" data-aos="fade-up" >
-              <img src="https://i.ibb.co/W0bkYvx/pexels-drew-williams-3568520-1.jpg" alt="" className="rounded-lg" />
+              <img src={contact} alt="" className="rounded-lg" />
             </div>
             <div className="card flex-shrink-0 w-full max-w-sm ">
               <form className="card-body" data-aos="fade-down" >
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-yellow-400 text-lg">Name</span>
+                    <span className="label-text text-green-500 text-lg">Name</span>
                   </label>
                   <input
                     type="email"
@@ -83,7 +85,7 @@ const ContactUs = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-yellow-400 text-lg">Email</span>
+                    <span className="label-text text-green-500  text-lg">Email</span>
                   </label>
                   <input
                     type="email"
@@ -94,17 +96,17 @@ const ContactUs = () => {
                   <label className="label">
                   <div className="relative w-full min-w-[200px]">
                     <textarea
-                      className="peer h-full min-h-[100px] w-full resize-none rounded-[7px] border border-yellow-300 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-pink-300 placeholder-shown:border-t-red-500 focus:border-2 focus:border-pink-300 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
+                      className="peer h-full min-h-[100px] w-full resize-none rounded-[7px] border border-green-300 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-pink-300 placeholder-shown:border-t-red-500 focus:border-2 focus:border-pink-300 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
                       placeholder=" "
                     ></textarea>
-                    <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-red-500 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-red-500 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-red-500 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-red-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-red-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-red-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-red-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                    <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-green-500 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-red-500 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-green-500 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-red-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-red-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-red-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-red-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
                     Text here
                     </label>
                   </div>
                   </label>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn bg-yellow-300 hover:bg-yellow-400">Submit</button>
+                  <button className="btn text-white bg-green-500 hover:bg-green-600">Submit</button>
                 </div>
               </form>
             </div>
@@ -120,7 +122,7 @@ const ContactUs = () => {
           <div className="grid gap-6 grid-cols-1 md:grid-cols-3 ">
             <div className="card  " data-aos="fade-down">
               <figure className="px-10 pt-10">
-              <MdOutlineHomeWork className="text-5xl text-yellow-400"></MdOutlineHomeWork>
+              <MdOutlineHomeWork className="text-5xl text-green-500"></MdOutlineHomeWork>
               </figure>
               <div className="card-body items-center text-center" data-aos="fade-up">
                 <h2 className="card-title">Dhaka</h2>
@@ -131,7 +133,7 @@ const ContactUs = () => {
             </div>
             <div className="card  " data-aos="fade-down">
               <figure className="px-10 pt-10">
-              <MdOutlineHomeWork className="text-5xl text-yellow-400"></MdOutlineHomeWork>
+              <MdOutlineHomeWork className="text-5xl text-green-500"></MdOutlineHomeWork>
               </figure>
               <div className="card-body items-center text-center" data-aos="fade-up">
                 <h2 className="card-title">Rajshahi</h2>
@@ -142,7 +144,7 @@ const ContactUs = () => {
             </div>
             <div className="card  "data-aos="fade-down">
               <figure className="px-10 pt-10">
-               <MdOutlineHomeWork className="text-5xl text-yellow-400"></MdOutlineHomeWork>
+               <MdOutlineHomeWork className="text-5xl text-green-500"></MdOutlineHomeWork>
               </figure>
               <div className="card-body items-center text-center" data-aos="fade-up">
                 <h2 className="card-title">Pabna</h2>
@@ -157,6 +159,7 @@ const ContactUs = () => {
             </div>
 
             </div>
+            <Footer></Footer>
         </div>
     );
 };

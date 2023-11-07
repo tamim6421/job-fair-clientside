@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
+import { FaHome } from "react-icons/fa";
 
 
 const Navbar = () => {
@@ -11,17 +12,17 @@ const Navbar = () => {
         <NavLink
   to="/"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-green-500 text-xl bg-green-50 font-semibold" : "hover:bg-green-100  text-gray-600 text-lg"
+    isPending ? "pending" : isActive ? "text-green-500 text-lg bg-green-100 font-semibold" : "hover:bg-green-100  text-gray-600 text-lg"
   }
 >
-  Home
+<FaHome></FaHome>  Home
 </NavLink>
         </li>
         <li>
         <NavLink
   to="/addJobs"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-green-500 text-xl bg-green-50 font-semibold" : "hover:bg-green-100  text-gray-600 text-lg"
+    isPending ? "pending" : isActive ? "text-green-500 text-lg bg-green-50 font-semibold" : "hover:bg-green-100  text-gray-600 text-lg"
   }
 >
   Add Jobs
@@ -31,7 +32,7 @@ const Navbar = () => {
         <NavLink
   to="/postedJobs"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-green-500 text-xl bg-green-50 font-semibold" : "hover:bg-green-100  text-gray-600 text-lg"
+    isPending ? "pending" : isActive ? "text-green-500 text-lg bg-green-100 font-semibold" : "hover:bg-green-100  text-gray-600 text-lg"
   }
 >
   Posted Jobs
@@ -41,7 +42,7 @@ const Navbar = () => {
         <NavLink
   to="/myBids"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ?"text-green-500 text-xl bg-green-50 font-semibold" : "hover:bg-green-100 text-gray-600 text-lg"
+    isPending ? "pending" : isActive ?"text-green-500 text-lg bg-green-100 font-semibold" : "hover:bg-green-100 text-gray-600 text-lg"
   }
 >
   My Bids
@@ -51,7 +52,7 @@ const Navbar = () => {
         <NavLink
   to="/bidRequest"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-green-500 text-xl bg-green-50 font-semibold" : "hover:bg-green-100  text-gray-600 text-lg"
+    isPending ? "pending" : isActive ? "text-green-500 text-lg bg-green-50 font-semibold" : "hover:bg-green-100  text-gray-600 text-lg"
   }
 >
   Bid Request
@@ -61,7 +62,7 @@ const Navbar = () => {
         <NavLink
   to="/contact"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-green-500 text-xl bg-green-50 font-semibold" : "hover:bg-green-100  text-gray-600 text-lg"
+    isPending ? "pending" : isActive ? "text-green-500 text-lg bg-green-50 font-semibold" : "hover:bg-green-100  text-gray-600 text-lg"
   }
 >
  Contact Us
@@ -69,8 +70,8 @@ const Navbar = () => {
         </li>
     </>
     return (
-        <div>
-        <div className="navbar shadow-lg px-10 font-semibold text-rose-500 ">
+        <div className=" ">
+        <div className="navbar  bg-white top-0 w-full  shadow-lg px-10 font-semibold text-rose-500 ">
 <div className="navbar-start">
 <div className="dropdown">
   <label tabIndex={0} className="btn  bg-[#fb70895d] lg:hidden">

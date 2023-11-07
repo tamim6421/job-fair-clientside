@@ -2,7 +2,7 @@ import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaMoneyBill1 } from "react-icons/fa6";
-import {  MdOutlinePriceChange, MdDateRange, MdDescription } from "react-icons/md";
+import {  MdOutlinePriceChange, MdDateRange, MdDescription, MdEmail } from "react-icons/md";
 import details from '../../../assets/details.json'
 import task from '../../../assets/task.svg'
 
@@ -111,10 +111,22 @@ const handelDate = () =>{
                 <hr />
                 <div>
                 <div className="space-y-6 ">
-          <h2 className="card-title text-xl"> <MdOutlinePriceChange></MdOutlinePriceChange>   Maximum Price: <span> {maximumPrice} </span> </h2>
-          <h2 className="card-title text-xl"> <MdOutlinePriceChange></MdOutlinePriceChange>   Minimum Price: <span> {minimumPrice} </span> </h2>
-          <h1 className="flex items-center gap-2 text-xl"> <MdDateRange className="text-2xl"></MdDateRange>  Dead Line : <span>{deadline} </span> </h1>
-          <p className="flex items-center "> <MdDescription className="text-5xl"></MdDescription> <span>{shortDescription} </span> </p>
+          <h2 className="card-title text-xl"> <MdOutlinePriceChange className="text-3xl text-orange-500"></MdOutlinePriceChange>   Maximum Price: <span> {maximumPrice} </span> </h2>
+          <h2 className="card-title text-xl"> <MdOutlinePriceChange className="text-3xl text-orange-500"></MdOutlinePriceChange>   Minimum Price: <span> {minimumPrice} </span> </h2>
+          <h1 className="flex items-center gap-2 text-xl"> <MdDateRange className="text-3xl text-orange-500"></MdDateRange>  Dead Line : <span>{deadline} </span> </h1>
+          
+          <div className="flex items-center gap-2">
+            <div><MdDescription className="text-3xl text-orange-500"></MdDescription></div>
+          <p className="flex items-center ">  <span>{shortDescription} </span> </p>
+          </div>
+
+          <div>
+            <div className="flex items-center gap-2">
+              <MdEmail className="text-3xl text-orange-500"></MdEmail>
+              <p>Buyer Email : {employerEmail} </p>
+            </div>
+          </div>
+         
           </div>
                 </div>
                 <div className="card-actions">

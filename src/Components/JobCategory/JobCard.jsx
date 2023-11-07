@@ -7,7 +7,7 @@ const JobCard = ({ job }) => {
   //console.log(job);
   return (
     <div>
-      <div className="card flex flex-col md:flex-row lg:card-side bg-green-100 md:h-[250px] p-8 mb-10 px-9 shadow-xl">
+      <div className="card box flex flex-col md:flex-row lg:card-side bg-green-100 md:h-[250px] p-8 mb-10 px-9 shadow-xl">
      
       <div className="flex flex-col text-center justify-center  w-2/6 items-center">
    

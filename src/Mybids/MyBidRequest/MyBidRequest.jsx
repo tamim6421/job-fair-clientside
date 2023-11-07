@@ -25,7 +25,7 @@ const MyBidRequest = () => {
         //     setAllRequest(res.data)
         // })
        
-        axios('http://localhost:5000/bidProject',)
+        axios.get('http://localhost:5000/bidProject',)
         .then(res => {
             setAllRequest(res.data)
         })

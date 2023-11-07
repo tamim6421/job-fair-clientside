@@ -12,6 +12,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
+import Title from "../Title/Title";
+import Footer from "../Footer/Footer";
 
 
 
@@ -123,8 +125,10 @@ const AddJobs = () => {
                 </title>
             </Helmet>
             <Navbar></Navbar>
-            <h1 className="text-5xl font-semibold text-center">add a new jobs </h1>
-            <div>
+           <div className="text-center mt-36 mb-5">
+            <Title>Added a New Job</Title>
+           </div>
+            <div className="shadow-lg p-5 rounded-lg ">
             <form onSubmit={handleSubmitJobs} >
         <div className="md:flex gap-4  mb-8 px-4">
             <div className="form-control md:w-1/2">
@@ -259,12 +263,13 @@ const AddJobs = () => {
             type="submit"
             name=""
             value="Add New Jobs"
-            className="btn btn-block text-black bg-yellow-300 hover:bg-yellow-400"
+            className="btn btn-block text-white bg-green-500 hover:bg-green-600"
             id=""
             data-aos="fade-down"
           />
         </form>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

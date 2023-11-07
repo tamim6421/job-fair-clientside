@@ -1,5 +1,5 @@
 import { useNavigate, useRouteError } from "react-router-dom";
-
+import four from '../../assets/404.svg'
 
 const ErrorPage = () => {
     const error = useRouteError();
@@ -11,14 +11,14 @@ const ErrorPage = () => {
     }
   
     return (
-     <div className="h-[70vh] flex justify-center items-center">
+     <div className="h-[70vh] flex justify-center my-20 items-center">
          <div  id="error-page">
-        <h1>Oops!</h1>
-        <p>Sorry, an unexpected error has occurred.</p>
+        <img src={four} alt="" />
+       
         <p>
           <i>{error.statusText || error.message}</i>
         </p>
-        <button onClick={handleBack} className="btn">back to home</button>
+        <button onClick={handleBack} className="btn bg-green-500 text-white">back to home</button>
       </div>
      </div>
     );

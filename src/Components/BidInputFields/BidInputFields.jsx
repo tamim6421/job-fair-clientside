@@ -75,8 +75,8 @@ const BidInputFields = () => {
         <Navbar></Navbar>
         <div className=" flex h-[100vh] justify-center items-center w-3/4 mx-auto  ">
       <form onSubmit={handelSubmit} className="card-body shadow-2xl rounded-lg">
-        <h1 className="text-3xl font-semibold text-center text-green-400 ">
-          Your Bid Information
+        <h1 className="text-3xl font-semibold text-center drop-shadow-lg text-green-500 ">
+          Input Your Bid Data
         </h1>
         <hr />
         <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
@@ -148,7 +148,7 @@ const BidInputFields = () => {
         </div>
         <div className="form-control mt-6">
     
-          <input className="btn btn-success" type="submit" value="Bid On The Project" />
+          <input className="btn btn-success bg-green-500 text-white" type="submit" value="Bid On The Project" />
         </div>
       </form>
     </div>
