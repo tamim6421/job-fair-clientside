@@ -5,6 +5,9 @@ import { FaEye,FaEyeSlash  } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
 import toast from 'react-hot-toast';
 import SocialLogin from "./SocialLogin/SocialLogin";
+import login from '../../assets/login2.json'
+import Lottie from "lottie-react";
+import Title from "../../Components/Title/Title";
 
 const Login = () => {
     const{signInUser} = useAuth()
@@ -44,11 +47,13 @@ const Login = () => {
         <div className="overly">
        <Navbar></Navbar>
         <div className="hero  min-h-screen">
-           <div className="hero-content flex-col lg:flex-row-reverse bg-[#bbbbbb2d]">
+           <div className="hero-content flex-col lg:flex-row-reverse bg-green-50">
              <div className="text-center lg:text-left">
-               <h1 className="text-5xl text-white font-bold">Login now!</h1>
-               <p className="py-6">
-                {/* <img src={photo} alt="" /> */}
+              <div className="mt-36">
+              <Title>Login Now</Title>
+              </div>
+               <p className="">
+             <Lottie animationData={login}></Lottie>
                </p>
              </div>
              <div className="card flex-shrink-0 w-full max-w-sm ">
@@ -56,7 +61,7 @@ const Login = () => {
                  
                  <div className="form-control ">
                    <label className="label">
-                     <span className="label-text text-white">Email</span>
+                     <span className="label-text text-green-600">Email</span>
                    </label>
                    <input
                      type="email"
@@ -69,7 +74,7 @@ const Login = () => {
                  </div>
                  <div className="form-control">
                    <label className="label">
-                     <span className="label-text text-white">Password</span>
+                     <span className="label-text text-green-600">Password</span>
                    </label>
    
                         <div className="relative">
@@ -83,21 +88,21 @@ const Login = () => {
                    <div className=" absolute right-3 top-3 text-xl">
                    <span onClick={()=> setShowPass(!showPass)}>
                      {
-                       showPass? <FaEyeSlash></FaEyeSlash> :  <FaEye></FaEye>
+                       showPass? <FaEyeSlash className="text-green-400"></FaEyeSlash> :  <FaEye className="text-green-400"></FaEye>
                      }
                    </span>
                    </div>
                   </div>
                    <label className="label">
-                     <a href="#" className="label-text-alt text-sm link link-hover text-white">
+                     <a href="#" className="label-text-alt text-sm link link-hover text-green-600">
                        Forgot password?
                      </a>
                    </label>
                  </div>
                 
                  <div className="form-control mt-6">
-                   <button className="btn bg-rose-400 text-white btn-error">Login</button>
-                   <p className='text-white mt-5'>New This Site? Please <Link to='/register'>   <span className='text-rose-300 underline font-semibold'> Register</span> </Link></p>
+                   <button className="btn bg-green-400 text-white hover:bg-green-600">Login</button>
+                   <p className='text-green-400 mt-5'>New This Site? Please  <Link to='/register'>   <span className='text-orange-600 underline font-semibold'>  Register</span> </Link></p>
                  </div>
                  <div>
                  <SocialLogin></SocialLogin>

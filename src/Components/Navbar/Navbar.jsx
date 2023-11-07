@@ -11,7 +11,7 @@ const Navbar = () => {
         <NavLink
   to="/"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "active" : ""
+    isPending ? "pending" : isActive ? "text-green-500 text-xl bg-green-50 font-semibold" : "hover:bg-green-100  text-gray-600 text-lg"
   }
 >
   Home
@@ -21,7 +21,7 @@ const Navbar = () => {
         <NavLink
   to="/addJobs"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "active" : ""
+    isPending ? "pending" : isActive ? "text-green-500 text-xl bg-green-50 font-semibold" : "hover:bg-green-100  text-gray-600 text-lg"
   }
 >
   Add Jobs
@@ -31,7 +31,7 @@ const Navbar = () => {
         <NavLink
   to="/postedJobs"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "active" : ""
+    isPending ? "pending" : isActive ? "text-green-500 text-xl bg-green-50 font-semibold" : "hover:bg-green-100  text-gray-600 text-lg"
   }
 >
   Posted Jobs
@@ -41,7 +41,7 @@ const Navbar = () => {
         <NavLink
   to="/myBids"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "active" : ""
+    isPending ? "pending" : isActive ?"text-green-500 text-xl bg-green-50 font-semibold" : "hover:bg-green-100 text-gray-600 text-lg"
   }
 >
   My Bids
@@ -51,7 +51,7 @@ const Navbar = () => {
         <NavLink
   to="/bidRequest"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "active" : ""
+    isPending ? "pending" : isActive ? "text-green-500 text-xl bg-green-50 font-semibold" : "hover:bg-green-100  text-gray-600 text-lg"
   }
 >
   Bid Request
@@ -61,7 +61,7 @@ const Navbar = () => {
         <NavLink
   to="/contact"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "active" : ""
+    isPending ? "pending" : isActive ? "text-green-500 text-xl bg-green-50 font-semibold" : "hover:bg-green-100  text-gray-600 text-lg"
   }
 >
  Contact Us
@@ -103,24 +103,24 @@ const Navbar = () => {
       
     </div>
   </label>
-  <ul tabIndex={0} className="menu menu-sm dropdown-content text-sm  space-y-2 mt-3 z-[1] p-2 shadow bg-rose-200 rounded-box min-w-min">
+  <ul tabIndex={0} className="menu menu-sm dropdown-content text-sm  space-y-2 mt-3 z-[1] p-2 shadow bg-green-200 rounded-box min-w-min">
     <li>
     {
-              user.displayName == null ? <button className="btn btn-sm text-white bg-pink-500"> User </button> :<button className="btn btn-sm  text-white bg-pink-500">  {user.displayName} </button>
+              user.displayName == null ? <button className="btn btn-sm text-white bg-green-500"> User </button> :<button className="btn btn-sm  text-white bg-green-500">  {user.displayName} </button>
             }
           </li>
           <li>
-          <button className="btn btn-sm text-white bg-pink-400" > {user.email} </button>
+          <button className="btn btn-sm text-white bg-green-400" > {user.email} </button>
           </li>
           <li className="w-full">
            <button
           onClick={logOut}
-            className="btn btn-sm text-white  w-full bg-pink-400" > LogOut </button>
+            className="btn btn-sm text-white  w-full bg-green-400" > LogOut </button>
           </li>
   </ul>
 </div>
 
-  </div> : <Link to='/login'> <button className="rounded-lg btn-sm text-white bg-pink-400 ">lOGIN</button> </Link>
+  </div> : <Link to='/login'> <button className="rounded-lg btn-sm text-white bg-green-500 ">lOGIN</button> </Link>
 
 }
 

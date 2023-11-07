@@ -23,11 +23,11 @@ const SocialLogin = () => {
     }
     return (
         <div>
-              <div className="divider ">Or, Continue With</div>
+              <div className="divider text-green-500 ">Or, Continue With</div>
           <button
             type="button"
             onClick= { ()=>handleSocialLogin(googleLogin)}
-            className="btn btn-outline btn-primary  w-full flex justify-between items-center cursor-pointer "
+            className="btn btn-outline btn-success w-full flex justify-between items-center cursor-pointer "
           >
             Google
             <FcGoogle className="w-8 h-8" />

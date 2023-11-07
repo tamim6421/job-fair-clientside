@@ -6,6 +6,7 @@ import HowItWorks from "../../Components/HowItWorks/HowItWorks";
 import JobCategory from "../../Components/JobCategory/JobCategory";
 import Navbar from "../../Components/Navbar/Navbar";
 import Banner from "./Banner/Banner";
+import DreamJobs from "../../Components/DreamJobs/DreamJobs";
 
 
 
@@ -24,7 +25,7 @@ const Home = () => {
             <div>
                 <JobCategory></JobCategory>
             </div>
-
+            <DreamJobs></DreamJobs>
             <Candidate></Candidate>
             <HowItWorks></HowItWorks>
             <Footer></Footer>

@@ -4,6 +4,9 @@ import Navbar from "../../Components/Navbar/Navbar";
 import { FaEye,FaEyeSlash  } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
 import SocialLogin from "../Login/SocialLogin/SocialLogin";
+import login from '../../assets/login1.json'
+import Lottie from "lottie-react";
+import Title from "../../Components/Title/Title";
 
 const Register = () => {
     const {createUser, handleUpdateProfile} = useAuth()
@@ -62,15 +65,15 @@ const Register = () => {
         })
     }
     return (
-        <div className="container">
+        <div className="container ">
     <div className="overly">
     <Navbar></Navbar>
-    <div className="hero min-h-screen">
-       <div className="hero-content flex-col lg:flex-row-reverse bg-[#bbbbbb53]">
-         <div className="text-center lg:text-left">
-           <h1 className="text-5xl text-white mb-10 divider font-bold">Register now!</h1>
+    <div className="hero min-h-screen bg-green-50">
+       <div className="hero-content flex-col lg:flex-row-reverse ">
+         <div className="text-center mt-10 lg:text-left">
+           <Title>Register Now</Title>
            <p className="py-6">
-            {/* <img src={photo} alt="" /> */}
+           <Lottie animationData={login}></Lottie>
 
            </p>
          </div>
@@ -79,7 +82,7 @@ const Register = () => {
              
              <div className="form-control ">
                <label className="label">
-                 <span className="label-text text-white">User Name</span>
+                 <span className="label-text text-green-500">User Name</span>
                </label>
                <input
                  type="text"
@@ -92,7 +95,7 @@ const Register = () => {
              
              <div className="form-control ">
                <label className="label">
-                 <span className="label-text text-white">Photo URL</span>
+                 <span className="label-text text-green-500">Photo URL</span>
                </label>
                <input
                  type="text"
@@ -105,7 +108,7 @@ const Register = () => {
 
              <div className="form-control ">
                <label className="label">
-                 <span className="label-text text-white">Email</span>
+                 <span className="label-text text-green-500">Email</span>
                </label>
                <input
                  type="email"
@@ -117,7 +120,7 @@ const Register = () => {
              </div>
              <div className="form-control">
                <label className="label">
-                 <span className="label-text text-white">Password</span>
+                 <span className="label-text text-green-500">Password</span>
                </label>
              
                <div className="relative">
@@ -131,21 +134,21 @@ const Register = () => {
                 <div className=" absolute right-3 top-3 text-xl">
                 <span onClick={()=> setShowPass(!showPass)}>
                   {
-                    showPass? <FaEyeSlash></FaEyeSlash> :  <FaEye></FaEye>
+                    showPass? <FaEyeSlash className="text-green-400"></FaEyeSlash> :  <FaEye className="text-green-400"></FaEye>
                   }
                 </span>
                 </div>
                </div>
                <div className=" mt-4">
                     <input className="mr-2" type="checkbox" name="check" id="check" />
-                    <label className="text-white" htmlFor="check">Accept Our Trams And Conditions</label>
+                    <label className="text-green-500" htmlFor="check">Accept Our Trams And Conditions</label>
                   </div>
             
              </div>
             
              <div className="form-control mt-6">
-               <button className="btn bg-rose-500 text-white btn-error">register</button>
-               <p className='text-white mt-4'>Already have an account? Please  <Link to='/login'>   <span className='text-rose-600 font-semibold underline'> Login</span> </Link></p>
+               <button className="btn bg-green-500 text-white btn-success">register</button>
+               <p className='text-green-500 mt-4'>Already have an account? Please  <Link to='/login'>   <span className='text-rose-600 font-semibold underline'> Login</span> </Link></p>
              </div>
              <div>
                <SocialLogin></SocialLogin>

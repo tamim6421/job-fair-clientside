@@ -5,12 +5,11 @@ const Candidate = () => {
   return (
     <div>
       <div className="text-center my-20">
-        <h1 className="text-3xl font-bold">
-          High Qualified <span>Candidates</span>{" "}
+        <h1 className="text-3xl text-green-500 drop-shadow-lg font-bold">
+          High Qualified <span className="text-orange-500">Candidates</span>{" "}
         </h1>
-        <p>
-          onsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-          et dolore magna aliqua.{" "}
+        <p className="text-xl">
+        Register and browse professionals, explore projects, or even book a consultation.
         </p>
       </div>
 
