@@ -169,7 +169,7 @@ const MyBidRequest = () => {
             <td>{req.price}</td>
             <td>{req.date}</td>
 
-            <td  className={req.status == 'Pending' ?"font-bold  text-blue-500" : req.status == 'Rejected' ? 'text-red-500 font-bold':  req.status == "Completed" ? "text-[#d900fa] font-bold":'text-green-500' }> <p className="bg-gray-200 w-[90px] text-center rounded-full py-[5px]">{req.status}</p> </td>
+            <td  className={req.status == 'Pending' ?"font-bold  text-blue-500" : req.status == 'Rejected' ? 'text-red-500 font-bold':  req.status == "Completed" ? "text-[#d900fa] font-bold":'text-green-500 font-bold' }> <p className="bg-gray-200 w-[90px] text-center rounded-full py-[5px]">{req.status}</p> </td>
             <td className="">
 
               <div>
