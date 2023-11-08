@@ -20,7 +20,7 @@ const UpdateJobs = () => {
     const [catItem, setCatItem] = useState('digital-marketing')
     // console.log(categories)
    useEffect( ()=>{
-        axios('http://localhost:5000/category')
+        axios('https://job-fair-server.vercel.app/category')
         .then(res => {
             setCategories(res.data)
         })
@@ -68,7 +68,7 @@ const UpdateJobs = () => {
             
         }
         console.log(updatedJobs)
-        axios.put(`http://localhost:5000/jobs/${_id}`, updatedJobs)
+        axios.put(`https://job-fair-server.vercel.app/jobs/${_id}`, updatedJobs)
         .then(res => {
             console.log(res.data)
             if(res.data.modifiedCount > 0){

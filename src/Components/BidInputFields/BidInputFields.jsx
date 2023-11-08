@@ -55,7 +55,7 @@ const BidInputFields = () => {
           return toast.error('Can not Bid Your Worn Job')
         }  
         
-        axios.post('http://localhost:5000/bidProject', bidInfo)
+        axios.post('https://job-fair-server.vercel.app/bidProject', bidInfo)
         .then(data => {
             console.log(data.data)
             if(data.data.insertedId){

@@ -20,20 +20,30 @@ const MyBidRequest = () => {
     const axiosSecure = useAxiosSec()
 
 
+
+    useEffect(() =>{
+        axios('https://job-fair-server.vercel.app/request')
+        .then(res =>{
+            console.log(res.data)
+            setAllRequest(res.data)
+        })
+
+    } ,[])
+
     // const url = `/bidProject?employerEmail=${user?.email}`
-    useEffect( () =>{
+    // useEffect( () =>{
         // axiosSecure.get(url)
         // .then(res => {
         //     setAllRequest(res.data)
         // })
        
-        axios.get(`http://localhost:5000/bidProject?employerEmail=${user?.email}`, {
-            withCredentials: true
-        })
-        .then(res => {
-            setAllRequest(res.data)
-        })
-    } ,[user?.email])
+    //     axios.get(`https://job-fair-server.vercel.app/bidProject?email=${user?.email}`, {
+    //         withCredentials: true
+    //     })
+    //     .then(res => {
+    //         setAllRequest(res.data)
+    //     })
+    // } ,[user?.email])
 
 
 
@@ -45,10 +55,11 @@ const MyBidRequest = () => {
     } ,[allRequest, user.email])
 
     console.log(myRequest)
+    
 
     const handleReject = (id) =>{
         console.log(id)
-        fetch(`http://localhost:5000/bidProject/${id}`, {
+        fetch(`https://job-fair-server.vercel.app/bidProject/${id}`, {
             method:"PATCH",
             headers: {
                 'content-type' : 'application/json'
@@ -69,7 +80,7 @@ const MyBidRequest = () => {
             }
         })
   
-        axios('http://localhost:5000/bidProject',)
+        axios.get(`https://job-fair-server.vercel.app/request`)
         .then(res => {
             
             setAllRequest(res.data)
@@ -83,7 +94,7 @@ const MyBidRequest = () => {
     }
     const handleAccept = (id) =>{
         console.log(id)
-        fetch(`http://localhost:5000/bidProject/${id}`, {
+        fetch(`https://job-fair-server.vercel.app/bidProject/${id}`, {
             method:"PATCH",
             headers: {
                 'content-type' : 'application/json'
@@ -104,7 +115,7 @@ const MyBidRequest = () => {
             }
         })
   
-        axios('http://localhost:5000/bidProject',)
+        axios('https://job-fair-server.vercel.app/request',)
         .then(res => {
             
             setAllRequest(res.data)

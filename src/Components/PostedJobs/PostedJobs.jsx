@@ -14,7 +14,7 @@ const PostedJobs = () => {
     const[jobs, setJobs] = useState([])
     const axiosSecure = useAxiosSec()
 
-    const url = `/jobs?employerEmail=${user?.email}`
+    const url = `/findjobs?email=${user?.email}`
     useEffect( () =>{
         axiosSecure.get(url)
         .then(res => {
@@ -39,7 +39,7 @@ const PostedJobs = () => {
           }).then((result) => {
             if (result.isConfirmed) {
 
-                axios.delete(`http://localhost:5000/jobs/${id}`)
+                axios.delete(`https://job-fair-server.vercel.app/jobs/${id}`)
                 .then(res =>{
                     console.log(res.data)
                     if(res.data.deletedCount > 0){

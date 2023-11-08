@@ -21,7 +21,7 @@ const JobCategory = () => {
   // const data = useQueries({
   //   queryKey: ['jobs'],
   //   queryFn: async () =>{
-  //     const allCategory = await fetch('http://localhost:5000/category')
+  //     const allCategory = await fetch('https://job-fair-server.vercel.app/category')
   //     return await allCategory.json()
   //   }
   // })
@@ -29,14 +29,14 @@ const JobCategory = () => {
 
 
   useEffect(() =>{
-    axios('http://localhost:5000/category')
+    axios.get('https://job-fair-server.vercel.app/category')
     .then((res) => setCategories(res.data));
   } ,[])
 
   
   useEffect(() => {
    
-    axios(`http://localhost:5000/jobs?category=${category}`, {withCredentials: true})
+    axios.get(`https://job-fair-server.vercel.app/jobs?category=${category}`, {withCredentials: true})
     .then((res) => {
       // console.log(res.data)
       setAllJobs(res.data)

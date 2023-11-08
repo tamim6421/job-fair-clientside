@@ -27,7 +27,7 @@ const SocialLogin = () => {
           <button
             type="button"
             onClick= { ()=>handleSocialLogin(googleLogin)}
-            className="btn btn-outline btn-success w-full flex justify-between items-center cursor-pointer "
+            className="btn btn-outline btn-success w-full hover:text-white flex justify-between items-center cursor-pointer "
           >
             Google
             <FcGoogle className="w-8 h-8" />
