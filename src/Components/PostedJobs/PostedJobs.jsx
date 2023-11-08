@@ -15,17 +15,21 @@ const PostedJobs = () => {
     const axiosSecure = useAxiosSec()
 
     const url = `/findjobs?email=${user?.email}`
-    useEffect( () =>{
-        axiosSecure.get(url)
-        .then(res => {
-            setJobs(res.data)
-        })
-        // axios(url, {withCredentials: true})
-        // .then(res =>{
-        //     setJobs(res.data)
-        // })
-    } ,[axiosSecure, url])
-    // console.log(jobs)
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axiosSecure.get(url);
+                setJobs(response.data);
+            } catch (error) {
+                console.error('Error:', error);
+                // Handle the error here
+            }
+        }
+    
+        fetchData();
+    }, [axiosSecure, url]);
+    
 
     const handelDelete = id =>{
         Swal.fire({
