@@ -136,7 +136,7 @@ const Navbar = () => {
       
     </div>
   </label>
-  <ul tabIndex={0} className="menu menu-sm dropdown-content text-sm  space-y-2 mt-3 z-[1] p-2 shadow bg-green-200 rounded-box min-w-min">
+  <ul tabIndex={0} className="menu menu-sm dropdown-content text-sm  space-y-2 mt-3 z-[1] p-2 shadow bg-green-200 ">
     <li>
     {
               user.displayName == null ? <button className="btn btn-sm text-white bg-green-500"> User </button> :<button className="btn btn-sm  text-white bg-green-500">  {user.displayName} </button>

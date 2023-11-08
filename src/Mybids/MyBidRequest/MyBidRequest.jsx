@@ -22,9 +22,8 @@ const MyBidRequest = () => {
 
 
     useEffect(() =>{
-        axios('https://job-fair-server.vercel.app/request')
+        axios.get('https://job-fair-server.vercel.app/request')
         .then(res =>{
-            console.log(res.data)
             setAllRequest(res.data)
         })
 
@@ -50,81 +49,86 @@ const MyBidRequest = () => {
     // console.log(allRequest)
 
     useEffect( () =>{
-        const filterReq = allRequest.filter( req => req.allJobs.employerEmail === user.email )
+        const filterReq = allRequest.filter( req => req.allJobs.employerEmail == user.email )
         setMyRequest(filterReq)
     } ,[allRequest, user.email])
 
     console.log(myRequest)
     
 
-    const handleReject = (id) =>{
-        console.log(id)
-        fetch(`https://job-fair-server.vercel.app/bidProject/${id}`, {
-            method:"PATCH",
-            headers: {
-                'content-type' : 'application/json'
-            },
-            body: JSON.stringify({status: 'Rejected'})
-        })
-        .then(res => res.json())
-        .then(data =>{
-            console.log(data)
-            if(data.modifiedCount > 0){
-                toast.success('Request Rejected')
+    const handleReject = async (id) => {
+        console.log(id);
+        try {
+            const response = await fetch(`https://job-fair-server.vercel.app/bidProject/${id}`, {
+                method: "PATCH",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({ status: 'Rejected' })
+            });
+    
+            const data = await response.json();
+            console.log(data);
+    
+            if (data.modifiedCount > 0) {
+                toast.success('Request Rejected');
+            }
+    
+            const responseAllRequest = await axios.get(`https://job-fair-server.vercel.app/request`);
+            setAllRequest(responseAllRequest.data);
+    
+            console.log('here');
+            const filterReq = allRequest.filter(req => req.allJobs.employerEmail == user.email);
+            console.log(filterReq);
+            setMyRequest(filterReq);
+    
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    
+    }
+    
 
-                // const remaining = myRequest.filter( stat => stat._id !== id)
-                // const updated =myRequest.find(status => status._id === id)
+
+    
+    const handleAccept = async (id) => {
+        try {
+            console.log(id);
+    
+            const response = await fetch(`https://job-fair-server.vercel.app/bidProject/${id}`, {
+                method: "PATCH",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({ status: 'In Progress' })
+            });
+    
+            const data = await response.json();
+            console.log(data);
+    
+            if (data.modifiedCount > 0) {
+                toast.success('Request Accepted');
+    
+                // const remaining = myRequest.filter(stat => stat._id !== id)
+                // const updated = myRequest.find(status => status._id === id)
                 // updated.status = 'rejected'
                 // const newStatus = [updated,  ...remaining]
-                
             }
-        })
-  
-        axios.get(`https://job-fair-server.vercel.app/request`)
-        .then(res => {
-            
-            setAllRequest(res.data)
-
-        })
-        const filterReq = allRequest.filter( req => req.allJobs.employerEmail === user.email )
-        setMyRequest(filterReq)
-        console.log(myRequest)
-
-
-    }
-    const handleAccept = (id) =>{
-        console.log(id)
-        fetch(`https://job-fair-server.vercel.app/bidProject/${id}`, {
-            method:"PATCH",
-            headers: {
-                'content-type' : 'application/json'
-            },
-            body: JSON.stringify({status: 'In Progress'})
-        })
-        .then(res => res.json())
-        .then(data =>{
-            console.log(data)
-            if(data.modifiedCount > 0){
-                toast.success('Request Accepted')
-
-                // const remaining = myRequest.filter( stat => stat._id !== id)
-                // const updated =myRequest.find(status => status._id === id)
-                // updated.status = 'rejected'
-                // const newStatus = [updated,  ...remaining]
-                
-            }
-        })
-  
-        axios('https://job-fair-server.vercel.app/request',)
-        .then(res => {
-            
-            setAllRequest(res.data)
-
-        })
-        const filterReq = allRequest.filter( req => req.allJobs.employerEmail === user.email )
-        setMyRequest(filterReq)
-        console.log(myRequest)
-    }
+    
+            const responseAllRequest = await axios.get('https://job-fair-server.vercel.app/request');
+            setAllRequest(responseAllRequest.data);
+    
+            const filterReq = allRequest.filter(req => req.allJobs.employerEmail === user.email);
+            setMyRequest(filterReq);
+    
+            console.log(myRequest);
+    
+        } catch (error) {
+            console.error('Error:', error);
+            // Handle the error here
+        }
+    };
+    
 
     return (
         <div>
@@ -165,7 +169,7 @@ const MyBidRequest = () => {
             <td>{req.price}</td>
             <td>{req.date}</td>
 
-            <td  className={req.status == 'Pending' ?"font-semibold  text-blue-500" : req.status == 'Rejected' ? 'text-red-500':  req.status == "Completed" ? "text-[#d900fa] font-bold":'text-green-500' }> <p className="bg-gray-200 w-[90px] text-center rounded-full py-[5px]">{req.status}</p> </td>
+            <td  className={req.status == 'Pending' ?"font-bold  text-blue-500" : req.status == 'Rejected' ? 'text-red-500 font-bold':  req.status == "Completed" ? "text-[#d900fa] font-bold":'text-green-500' }> <p className="bg-gray-200 w-[90px] text-center rounded-full py-[5px]">{req.status}</p> </td>
             <td className="">
 
               <div>
