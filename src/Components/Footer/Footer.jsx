@@ -3,9 +3,9 @@ import './Footer.css'
 
 const Footer = () => {
     return (
-        <div className='container  mt-20 text-white'>
-            <footer className='overly' >
-  <div className="footer p-10   " >
+        <div className='   mt-20 bg-gray-800'>
+            <footer className=''>
+  <div className="footer mx-w-[1200px] text-white mx-auto p-10   " >
   <aside>
     <img src="https://i.ibb.co/bd4rzqD/attachment-101767836.jpg" className="w-36" alt="" />
     <p className='text-xl '>JOB FAIR.<br/>Providing reliable tech since 2022</p>

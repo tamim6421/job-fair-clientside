@@ -68,7 +68,7 @@ const ContactUs = () => {
         <div className="hero min-h-screen">
           <div className="hero-content  flex-col lg:flex-row-reverse">
             <div className="text-center  lg:text-left" data-aos="fade-up" >
-              <img src={contact} alt="" className="rounded-lg" />
+              <img src={contact} alt=""  className="rounded-lg " />
             </div>
             <div className="card flex-shrink-0 w-full max-w-sm ">
               <form className="card-body" data-aos="fade-down" >

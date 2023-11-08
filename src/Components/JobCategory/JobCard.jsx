@@ -10,7 +10,7 @@ const JobCard = ({ job }) => {
     <div>
       <div className="card box flex flex-col md:flex-row lg:card-side bg-green-100 md:h-[250px] p-8 mb-10 px-9 shadow-xl">
      
-      <div className="flex flex-col text-center justify-center  w-2/6 items-center">
+      <div className="flex flex-col text-center  justify-center  md:w-2/6 items-center">
    
       <img className="w-36" data-aos="fade-up"  src={jobs} alt="" />
          <h1 className="text-3xl font-bold drop-shadow-xl text-green-500" data-aos="fade-down">{jobTitle}</h1>
@@ -29,7 +29,9 @@ const JobCard = ({ job }) => {
               </div>
               <div className="flex w-4/5 gap-2">
 
-              <MdDescription className="text-3xl text-orange-500" data-aos="fade-up"></MdDescription> 
+             <div>
+             <MdDescription className="text-3xl text-orange-500" data-aos="fade-up"></MdDescription> 
+             </div>
           <p className=" " data-aos="fade-down"> <span>{shortDescription} </span> </p>
               </div>
           </div>

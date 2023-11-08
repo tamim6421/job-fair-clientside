@@ -4,8 +4,8 @@ import { motion } from "framer-motion"
 
 const Candidate = () => {
   return (
-    <div>
-      <div className="text-center my-20">
+    <div className="p-5">
+      <div className="text-center p-5 my-20">
         <h1 className="text-4xl text-green-500 drop-shadow-lg font-bold" data-aos="fade-up">
           High Qualified <span className="text-orange-500">Candidates</span>{" "}
         </h1>

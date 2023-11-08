@@ -188,6 +188,7 @@ const AddJobs = () => {
         className="input input-bordered w-full"
         name="date"
         onChange={handleDateChange}
+        required
       />
         
 
@@ -258,7 +259,7 @@ const AddJobs = () => {
           <div className="md:flex gap-4 mb-8 px-4">
             <div className="form-control w-full">
               <label className="label">
-                <span className="label-text text-green-500  text-lg font-semibold " data-aos="fade-up">Description</span>
+                <span required className="label-text text-green-500  text-lg font-semibold " data-aos="fade-up">Description</span>
               </label>
               <textarea className="textarea textarea-accent" name="description" placeholder="text here"></textarea>
             </div>

@@ -6,7 +6,7 @@ import Lottie from "lottie-react";
 
 const HowItWorks = () => {
   return (
-    <div className="my-40">
+    <div className="my-40 p-5">
      
       <p className="text-center  drop-shadow-sm" data-aos="fade-up">
         {" "}
