@@ -1,7 +1,5 @@
 import Title from "../Title/Title";
 import amin from '../../assets/teach- 1699341621073.json'
-import { AiFillLock } from "react-icons/ai";
-import img from '../../assets/jobs.svg'
 import Lottie from "lottie-react";
 
 const HowItWorks = () => {

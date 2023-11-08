@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import axios, { all } from 'axios';
 import { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList } from 'react-tabs';
@@ -13,19 +14,7 @@ const JobCategory = () => {
   const [categories, setCategories] = useState([]);
   const [allJobs, setAllJobs] = useState([]);
   const [category, setCategory] = useState('graphics-design')
-  // const [catName, setCatName] = useState('web-development');
-  // const [filteredJobs, setFilteredJobs] = useState([]);
 
-  // console.log(category)
-
-  // const data = useQueries({
-  //   queryKey: ['jobs'],
-  //   queryFn: async () =>{
-  //     const allCategory = await fetch('https://job-fair-server.vercel.app/category')
-  //     return await allCategory.json()
-  //   }
-  // })
-  // console.log(data)
 
 
   useEffect(() =>{
@@ -55,7 +44,7 @@ const JobCategory = () => {
   
 
   return (
-    <div className='my-36'>
+    <div className='my-36 p-5'>
          <div>
          <h2 className='text-3xl text-center font-bold drop-shadow-md text-green-400 ' data-aos="fade-up">Top Featured <span>Jobs</span> </h2>
       <h1 className='text-center mb-7 mt-2 text-xl text-gray-400 font-bold drop-shadow-md'>
@@ -63,11 +52,10 @@ const JobCategory = () => {
         <span className='flex justify-center gap-3 items-center' data-aos="fade-down">  Browse Category<BsArrowRight className='text-orange-500'></BsArrowRight></span> </h1>
          </div>
       <Tabs className='bg-gray-50' >
-        <TabList className='bg-green-400 box font-bold text-2xl py-5 text-white max-w-max px-10 mx-auto rounded-full text-center'>
+        <TabList className='bg-green-400 box font-bold text-2xl py-5 shadow-xl text-white max-w-max px-10 mx-auto rounded-full text-center'>
           
           {categories.map((cat) => (
             <Tab   
-                    
               key={cat._id}
               onClick={() => handleCategory(cat.category_name)}
               

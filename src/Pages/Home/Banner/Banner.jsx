@@ -6,7 +6,7 @@ import { BsArrowRight } from "react-icons/bs";
 import { motion } from "framer-motion"
 const Banner = () => {
     return (
-        <div className=" mt-10 shadow-md flex md:px-10 flex-col md:flex-row md:h-[600px]">
+        <div className=" mt-10 shadow-md flex px-5 md:px-10 flex-col md:flex-row md:h-[600px]">
             <div className='flex-[1] p-3'>
                 <p 
                

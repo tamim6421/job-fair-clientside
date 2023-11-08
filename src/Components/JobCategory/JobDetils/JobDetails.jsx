@@ -1,4 +1,4 @@
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaMoneyBill1 } from "react-icons/fa6";
@@ -10,15 +10,15 @@ import task from '../../../assets/task.svg'
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
-import daisyui from "daisyui";
 import Lottie from "lottie-react";
 import Title from "../../Title/Title";
+import Footer from "../../Footer/Footer";
 
 const JobDetails = () => {
   const {user} = useAuth()
   const jobs = useLoaderData();
-  const { jobTitle,deadline, priceRange,employerEmail, maximumPrice, minimumPrice, shortDescription} = jobs;
-  const navigate = useNavigate()
+  const { jobTitle,deadline,employerEmail, maximumPrice, minimumPrice, shortDescription} = jobs;
+ 
 //   const navigate = useNavigate()
   console.log(jobs);
 
@@ -57,11 +57,11 @@ const handelDate = () =>{
     <div>
       <Navbar></Navbar>
 
-        <div className="text-center mt-36" data-aos="fade-up" >
+        <div className="text-center mt-36 " data-aos="fade-up" >
           <Title>Job Details</Title>
         </div>
       <div>
-        <div className="min-h-[300px] bg-green-100 p-2 mt-20 shadow-lg">
+        <div className="min-h-[300px]  bg-green-100 p-2 mt-20 shadow-lg">
           <div className=" px-20 gap-9 flex flex-col md:flex-row md:items-center ">
             <div>
             <Lottie animationData={details}></Lottie>
@@ -159,6 +159,7 @@ const handelDate = () =>{
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

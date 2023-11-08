@@ -24,7 +24,7 @@ const ContactUs = () => {
          <Title> Contact With Us</Title>
             <div>
             <div className="grid gap-2 md:grid-cols-3 mt-20">
-        <div className="card  "  data-aos="fade-right">
+        <div className="card  "  data-aos="fade-down">
           <figure className="px-10 pt-5">
           <BiSolidPhoneCall className="text-5xl text-green-500"></BiSolidPhoneCall>
           </figure>
@@ -34,7 +34,7 @@ const ContactUs = () => {
             <p>+94987 2923421 0941</p>
           </div>
         </div>
-        <div className="card  "  data-aos="fade-left">
+        <div className="card  "  data-aos="fade-up">
           <figure className="px-10 pt-10">
          
         <AiTwotoneMail className="text-5xl  text-green-500"></AiTwotoneMail>
@@ -68,7 +68,7 @@ const ContactUs = () => {
         <div className="hero min-h-screen">
           <div className="hero-content  flex-col lg:flex-row-reverse">
             <div className="text-center  lg:text-left" data-aos="fade-up" >
-              <img src={contact} alt=""  className="rounded-lg " />
+              <img src={contact} alt=""  className="rounded-lg w-3/4 mx-auto " />
             </div>
             <div className="card flex-shrink-0 w-full max-w-sm ">
               <form className="card-body" data-aos="fade-down" >

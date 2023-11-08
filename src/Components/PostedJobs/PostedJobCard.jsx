@@ -1,14 +1,13 @@
 /* eslint-disable react/prop-types */
-import axios from "axios";
+
 import { Link } from "react-router-dom";
-import Swal from 'sweetalert2'
 import image from '../../assets/dream.svg'
-import { MdWorkspacesFilled ,MdOutlinePriceChange, MdDateRange, MdDescription } from "react-icons/md";
+import { MdOutlinePriceChange, MdDateRange, MdDescription } from "react-icons/md";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 
 const PostedJobCard = ({data, handelDelete}) => {
   
-    const{jobTitle,maximumPrice,minimumPrice,employerEmail,deadline,category,shortDescription, _id  } = data
+    const{jobTitle,maximumPrice,minimumPrice,deadline,category,shortDescription, _id  } = data
     console.log(data)
 
    

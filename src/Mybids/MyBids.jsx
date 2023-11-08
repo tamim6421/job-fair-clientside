@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar/Navbar";
-import axios, { Axios } from "axios";
 import useAuth from "../Hooks/useAuth";
 import useAxiosSec from "../Hooks/useAxiosSec";
 import { Helmet } from "react-helmet-async";
@@ -13,13 +12,12 @@ const MyBids = () => {
   const [myBids, setMyBids] = useState([]);
   const axiosSecure = useAxiosSec();
 
-  const url = `/bidProject?email=${user?.email}`
-//   const url = `https://job-fair-server.vercel.app/bidProject?email=${user?.email}`;
+  const url = `/bidProject?email=${user?.email}`;
+  //   const url = `https://job-fair-server.vercel.app/bidProject?email=${user?.email}`;
   useEffect(() => {
-    axiosSecure.get(url)
-    .then(res => {
-        setMyBids(res.data)
-    })
+    axiosSecure.get(url).then((res) => {
+      setMyBids(res.data);
+    });
 
     // axi(url, { withCredentials: true })
     //   .then((res) => res.json())

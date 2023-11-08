@@ -16,6 +16,7 @@ https://job-fair-1170a.web.app/
 - AOS animation 
 - Farmer motion
 - Transtack Query
+- Axios
 - Firebase 
 - Lottie animation 
 - Material UI

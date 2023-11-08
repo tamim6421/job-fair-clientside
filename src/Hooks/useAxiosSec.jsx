@@ -28,6 +28,7 @@ const useAxiosSec = () => {
                 })
             }
         })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     } ,[])
 
     return axiosSecure;

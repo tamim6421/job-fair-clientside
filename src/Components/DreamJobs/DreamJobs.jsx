@@ -4,7 +4,7 @@ import { FaAddressBook, FaHandsHelping, FaSeedling } from "react-icons/fa";
 
 const DreamJobs = () => {
   return (
-    <div className='my-36'>
+    <div className='my-36 p-5'>
       <div className='flex gap-10 flex-col md:flex-row'>
         <div className='flex-[1] p-5 box'>
             <img data-aos="zoom-in-up"  src={photo} alt="" />
@@ -26,7 +26,7 @@ const DreamJobs = () => {
                 </div>
                 <div>
                 <h1 className='text-2xl font-semibold text-green-500 drop-shadow-lg' data-aos="fade-down">Post a job and hire top talent</h1>
-                <p className='text-xl' data-aos="fade-up">Finding talent doesn’t have to be a chore. Post a job or we can search for you!.</p>
+                <p className='text-xl' data-aos="fade-up">Finding talent does not have to be a chore. Post a job or we can search for you!.</p>
                 </div>
             </div>
             <div className='flex items-center gap-5 mt-10'>
