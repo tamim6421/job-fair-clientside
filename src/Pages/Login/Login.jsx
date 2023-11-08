@@ -22,14 +22,29 @@ const Login = () => {
         const email = form.email.value
         const password = form.password.value
 
-        console.log(email, password)
+
+        // login verification system 
+        
+        if(password.length < 6){
+          toast.error('Password mast be at 6 character')
+          return
+     }
+     else if (!/^(?=.*[A-Z])/.test(password)){
+         toast.error('One Character should be UPPERCASE')
+         return 
+       }
+       else if(!/[!@#$%^&*(),.?":{}|<>]/.test(password)){
+        toast.error('Must have a special character')
+        return
+      }
+        
         signInUser(email, password)
         .then(res =>{
           const user = res.user
           toast.success('Login Successful')
           event.target.reset()
           console.log(user)
-          // localStorage.setItem('user', JSON.stringify(user));
+         
           // Navigate after login 
           navigate(location?.state ? location.state : '/')
         })

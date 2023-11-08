@@ -6,8 +6,10 @@ import JobCard from './JobCard';
 import { MdDashboard } from "react-icons/md";
 import { useQueries } from '@tanstack/react-query';
 import { BsArrowRight } from "react-icons/bs";
+import useAuth from '../../Hooks/useAuth';
 
 const JobCategory = () => {
+  const {user} = useAuth()
   const [categories, setCategories] = useState([]);
   const [allJobs, setAllJobs] = useState([]);
   const [category, setCategory] = useState('graphics-design')

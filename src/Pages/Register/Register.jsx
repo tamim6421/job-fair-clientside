@@ -7,6 +7,7 @@ import SocialLogin from "../Login/SocialLogin/SocialLogin";
 import login from '../../assets/login1.json'
 import Lottie from "lottie-react";
 import Title from "../../Components/Title/Title";
+import toast from "react-hot-toast";
 
 const Register = () => {
     const {createUser, handleUpdateProfile} = useAuth()
@@ -23,27 +24,31 @@ const Register = () => {
         const photo = form.photo.value
         const email = form.email.value 
         const password = form.password.value 
-        console.log(email, password, name, photo)
+        const check = event.target.check.checked
+    
+        if(password.length < 6){
+          toast.error('Password mast be at 6 character')
+          return 
+      }
+    
+    else if (!/^(?=.*[A-Z])/.test(password)){
+      toast.error('One Character should be UPPERCASE')
+      return 
+    }
+    else if(!/[!@#$%^&*(),.?":{}|<>]/.test(password)){
+      toast.error('Must have a special character')
+      return
+    }
+    else if(!check){
+      toast.error('Please Accept Our Trams And Conditions')
+      return
+    }
       
         createUser(email, password)
         .then( res =>{
          const user = res.user
          
-        //  localStorage.setItem('user', JSON.stringify(user));
- 
-         // const newUser = {name, email}
-         // fetch('http://localhost:5000/users',{
-         //   method:"POST",
-         //   headers:{
-         //     'content-type':'application/json'
-         //   },
-         //   body:JSON.stringify(newUser)
-         // })
-         // .then(res => res.json())
-         // .then(data =>{
-         //   console.log(data)
-         // })
- 
+
  
  
       

@@ -9,6 +9,8 @@ import toast from "react-hot-toast";
 import React from "react";
 import "react-step-progress-bar/styles.css";
 import { ProgressBar } from "react-step-progress-bar";
+import Title from "../../Components/Title/Title";
+import Footer from "../../Components/Footer/Footer";
 
 
 const MyBidRequest = () => {
@@ -25,7 +27,9 @@ const MyBidRequest = () => {
         //     setAllRequest(res.data)
         // })
        
-        axios.get('http://localhost:5000/bidProject')
+        axios.get(`http://localhost:5000/bidProject?employerEmail=${user?.email}`, {
+            withCredentials: true
+        })
         .then(res => {
             setAllRequest(res.data)
         })
@@ -119,20 +123,24 @@ const MyBidRequest = () => {
                 </title>
             </Helmet>
             <Navbar></Navbar>
-            
+
+                <div className="mt-20 text-center mb-10">
+                    <Title>Bid Request </Title>
+                </div>
 
             <div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto bg-green-50 shadow-lg">
   <table className="table">
     {/* head */}
-    <thead>
-      <tr>
+    <thead className=" bg-green-500 rounded-full  text-white rounded-ful" data-aos="flip-down" >
+      <tr className="text-xl">
         <th></th>
         <th>Job Title</th>
         <th>Email</th>
         <th>Price</th>
         <th>Deadline</th>
         <th>Status</th>
+        <th>Actions</th>
         
       </tr>
     </thead>
@@ -146,19 +154,19 @@ const MyBidRequest = () => {
             <td>{req.price}</td>
             <td>{req.date}</td>
 
-            <td  className={req.status == 'Pending' ?"font-semibold text-blue-500" : req.status == 'Rejected' ? 'text-red-500':'text-green-500' }>{req.status}</td>
+            <td  className={req.status == 'Pending' ?"font-semibold  text-blue-500" : req.status == 'Rejected' ? 'text-red-500':  req.status == "Completed" ? "text-[#d900fa] font-bold":'text-green-500' }> <p className="bg-gray-200 w-[90px] text-center rounded-full py-[5px]">{req.status}</p> </td>
             <td className="">
 
               <div>
               {
                 req.status == 'Pending'? <div>
-                    <button  onClick={() =>handleAccept(req._id)} className="btn btn-sm"> accept req </button>
-              <button onClick={() =>handleReject(req._id)} className="btn btn-sm"> reject req </button>
+                    <button  onClick={() =>handleAccept(req._id)} className="btn btn-success mr-2 bg-green-500 text-white btn-sm"> accept req </button>
+              <button onClick={() =>handleReject(req._id)} className="btn btn-error text-white btn-sm"> reject req </button>
                 </div> :
                 req.status == 'Rejected' ?
                 <div className="hidden">
-                    <button onClick={() =>handleAccept(req._id)} className="btn btn-sm"> accept req </button>
-              <button onClick={() =>handleReject(req._id)} className="btn btn-sm"> reject req </button>
+                    <button onClick={() =>handleAccept(req._id)} className="btn btn-success mr-2 bg-green-500 text-white btn-sm"> accept req </button>
+              <button onClick={() =>handleReject(req._id)} className="btn btn-error text-white  btn-sm"> reject req </button>
                 </div>:
 
                     <div className="">
@@ -182,6 +190,7 @@ const MyBidRequest = () => {
   </table>
 </div> 
             </div>
+            <Footer></Footer>
         </div>
     );
 };
