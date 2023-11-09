@@ -22,11 +22,21 @@ const Banner = () => {
                 <p className='text-xl mt-10 drop-shadow-lg ' data-aos="fade-up" >Forget the old rules. You can have the best people.
                             Right now. Right here.</p>
 
+                            <div className="form-control mt-5">
+                        <div className="input-group">
+                            <input type="text" placeholder="Search…" className="input input-bordered border-green-400" />
+                            <button className="btn bg-green-500 btn-square">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                            </button>
+                        </div>
+                        </div>
+
                 <div>
                     <motion.button 
                     animate={{rotateZ : 360}}
                     className='btn box bg-green-500 mt-10 shadow-lg hover:bg-green-600 text-white font-bold px-5 rounded-full' data-aos="fade-down">Get Started <BsArrowRight  className='text-white text-3xl font-bold'></BsArrowRight> </motion.button>
                 </div>
+
             </div>
             <div className='flex-[1]'>
             <Lottie animationData={animation} loop={true} ></Lottie>

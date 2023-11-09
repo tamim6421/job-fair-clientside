@@ -8,12 +8,12 @@ import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 const PostedJobCard = ({data, handelDelete}) => {
   
     const{jobTitle,maximumPrice,minimumPrice,deadline,category,shortDescription, _id  } = data
-    console.log(data)
+    // console.log(data)
 
    
     return (
         <div>
-            <div className="bg-green-200  rounded-lg shadow-lg w-3/4 mx-auto  px-6 py-1 mb-20">
+            <div className="bg-green-50 border-2  rounded-lg shadow-lg w-3/4 mx-auto  px-6 py-1 mb-20">
                <div className="flex flex-col md:flex-row">
                 <div className="p-5 flex-[1]">
                     <img src={image} className="w-2/3" alt="" data-aos="fade-up"  />

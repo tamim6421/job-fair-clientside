@@ -26,9 +26,8 @@ const PostedJobs = () => {
                 // Handle the error here
             }
         }
-    
         fetchData();
-    }, [axiosSecure, url]);
+    }, [url, axiosSecure]);
     
 
     const handelDelete = id =>{
@@ -62,7 +61,7 @@ const PostedJobs = () => {
           })
     }
 
-
+    console.log(jobs)
     return (
         <div>
             <Helmet>

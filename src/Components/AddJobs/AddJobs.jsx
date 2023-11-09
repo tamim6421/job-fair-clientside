@@ -17,7 +17,7 @@ const AddJobs = () => {
   const [inputDate, setInputDate] = useState("");
 
   const { user } = useAuth();
-  const [catItem, setCatItem] = useState("digital-marketing");
+  const [catItem, setCatItem] = useState("");
   const navigate = useNavigate();
   const inputRef = useRef();
 
@@ -194,6 +194,7 @@ const AddJobs = () => {
                 onChange={(e) => setCatItem(e.target.value)}
                 name=""
                 id=""
+                value={catItem || ''}
               >
                 <option value="" disabled>
                   Chose One

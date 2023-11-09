@@ -19,7 +19,7 @@ const JobCard = ({ job }) => {
   //console.log(job);
   return (
     <div>
-      <div className="card box flex flex-col md:flex-row lg:card-side bg-green-100 md:h-[250px] p-8 mb-10 px-9 shadow-xl">
+      <div className="card box flex flex-col overflow-hidden border-2 md:flex-row lg:card-side bg-green-100 md:h-[250px] p-8 mb-10 px-9 shadow-xl" data-aos="zoom-in-up">
         <div className="flex flex-col text-center  justify-center  md:w-2/6 items-center">
           <img className="w-36" data-aos="fade-up" src={jobs} alt="" />
           <h1

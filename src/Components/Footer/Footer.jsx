@@ -50,7 +50,7 @@ const Footer = () => {
   <div>
 </div>
   </div>
-<p className="text-center text-white">Copyright © 2023 - All right reserved by Tamim Hossain</p>
+<p className="text-center py-6 text-white">Copyright © 2023 - All right reserved by Tamim Hossain</p>
 </footer>
 
         </div>
