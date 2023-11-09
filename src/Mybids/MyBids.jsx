@@ -54,7 +54,7 @@ const MyBids = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen">
       <Helmet>
         <title>JOB FAIR | My Bids</title>
       </Helmet>
@@ -64,7 +64,7 @@ const MyBids = () => {
       </div>
 
       <div>
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto ">
           <table className="table">
             {/* head */}
             <thead

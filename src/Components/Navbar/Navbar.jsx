@@ -39,6 +39,16 @@ const Navbar = () => {
         </li>
         <li>
         <NavLink
+  to="/allJobs"
+  className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "text-green-500 text-lg bg-green-100 font-semibold" : "hover:bg-green-100  text-gray-600 text-lg"
+  }
+>
+Jobs
+</NavLink>
+        </li>
+        <li>
+        <NavLink
   to="/addJobs"
   className={({ isActive, isPending }) =>
     isPending ? "pending" : isActive ? "text-green-500 text-lg bg-green-50 font-semibold" : "hover:bg-green-100  text-gray-600 text-lg"

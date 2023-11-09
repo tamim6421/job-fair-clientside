@@ -13,6 +13,7 @@ import MyBids from "../Mybids/MyBids";
 import MyBidRequest from "../Mybids/MyBidRequest/MyBidRequest";
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import ContactUs from "../Pages/ContactUs/ContactUs";
+import AllJobs from "../Pages/AllJobs/AllJobs";
 
 
 const router = createBrowserRouter([
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
             {
                 path:'/contact',
                 element:<ContactUs></ContactUs>
+            },
+            {
+                path:'/allJobs',
+                element:<AllJobs></AllJobs>
             }
         ]
     }
