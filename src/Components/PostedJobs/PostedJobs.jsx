@@ -42,7 +42,7 @@ const PostedJobs = () => {
           }).then((result) => {
             if (result.isConfirmed) {
 
-                axios.delete(`https://job-fair-server.vercel.app/jobs/${id}`)
+                axios.delete(`http://localhost:5000/jobs/${id}`)
                 .then(res =>{
                     console.log(res.data)
                     if(res.data.deletedCount > 0){

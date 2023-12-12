@@ -51,13 +51,13 @@ const AuthProvider = ({children}) => {
 
             if(currentUser){
                
-                axios.post('https://job-fair-server.vercel.app/jwt', currentEmail, {withCredentials: true})
+                axios.post('http://localhost:5000/jwt', currentEmail, {withCredentials: true})
                 .then(res =>{
                     console.log('token response' ,res.data)
                 })
             }
             else{
-                axios.post('https://job-fair-server.vercel.app/logout', currentEmail, {withCredentials: true})
+                axios.post('http://localhost:5000/logout', currentEmail, {withCredentials: true})
                 .then(res =>{
                     console.log(res.data)
                 })

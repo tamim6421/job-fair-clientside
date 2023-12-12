@@ -14,6 +14,7 @@ import MyBidRequest from "../Mybids/MyBidRequest/MyBidRequest";
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import AllJobs from "../Pages/AllJobs/AllJobs";
+import Forum from "../Pages/Forum/Forum";
 
 
 const router = createBrowserRouter([
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>,
-                // loader: () => fetch('https://job-fair-server.vercel.app/jobs')
+                // loader: () => fetch('http://localhost:5000/jobs')
             },
             {
                 path:'/addJobs',
@@ -46,7 +47,7 @@ const router = createBrowserRouter([
             {
                 path:'/jobDetails/:id',
                 element:<PrivetRoute><JobDetails></JobDetails></PrivetRoute>,
-                loader: ({params})=> fetch(`https://job-fair-server.vercel.app/jobs/${params.id}`)
+                loader: ({params})=> fetch(`http://localhost:5000/jobs/${params.id}`)
             },
             {
                 path:'/bidField',
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
             {
                 path:'/updateJobs/:id',
                 element:<UpdateJobs></UpdateJobs>,
-                loader: ({params})=> fetch(`https://job-fair-server.vercel.app/jobs/${params.id}`)
+                loader: ({params})=> fetch(`http://localhost:5000/jobs/${params.id}`)
             },
             {
                 path: '/myBids',
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
             {
                 path:'/allJobs',
                 element:<AllJobs></AllJobs>
+            },
+            {
+                path: 'forum',
+                element: <Forum></Forum>
             }
         ]
     }

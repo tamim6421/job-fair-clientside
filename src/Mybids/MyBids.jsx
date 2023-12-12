@@ -13,7 +13,7 @@ const MyBids = () => {
   const axiosSecure = useAxiosSec();
 
   const url = `/bidProject?email=${user?.email}`;
-  //   const url = `https://job-fair-server.vercel.app/bidProject?email=${user?.email}`;
+  //   const url = `http://localhost:5000/bidProject?email=${user?.email}`;
   useEffect(() => {
     axiosSecure.get(url).then((res) => {
       setMyBids(res.data);
@@ -30,7 +30,7 @@ const MyBids = () => {
 
   const handelComplete = (id) => {
     console.log(id);
-    fetch(`https://job-fair-server.vercel.app/bidProject/${id}`, {
+    fetch(`http://localhost:5000/bidProject/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
