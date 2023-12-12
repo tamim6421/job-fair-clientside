@@ -35,7 +35,7 @@ const MyBidRequest = () => {
     setMyRequest(filterReq);
   }, [allRequest, user.email]);
 
-  console.log(myRequest);
+  // console.log(myRequest);
 
   const handleReject = async (id) => {
     console.log(id);
@@ -56,6 +56,10 @@ const MyBidRequest = () => {
 
       if (data.modifiedCount > 0) {
         toast.success("Request Rejected");
+
+        // send email to about reject bid request 
+        
+
       }
 
       const responseAllRequest = await axios.get(

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -8,11 +8,25 @@ import login from "../../assets/login1.json";
 import Lottie from "lottie-react";
 import Title from "../../Components/Title/Title";
 import toast from "react-hot-toast";
+import useAxiosPublic from "../../Hooks/axiosPublic";
+import Swal from "sweetalert2";
 
 const Register = () => {
+  const axiosPublic = useAxiosPublic()
   const { createUser, handleUpdateProfile } = useAuth();
   const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
+  const [districts, setDistricts] = useState([])
+
+  // get division 
+  useEffect( () =>{
+    fetch('https://bdapis.com/api/v1.1/districts')
+    .then( res=> res.json())
+    .then(data => {
+      setDistricts(data.data)
+    })
+  } ,[])
+  // console.log(districts)
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -41,8 +55,33 @@ const Register = () => {
       .then((res) => {
         const user = res.user;
 
-        handleUpdateProfile(name, photo).then(() => {
-          //  toast.success('User Created Successful')
+        handleUpdateProfile(name, photo)
+        .then(() => {
+           // send user data to the database 
+              const userInfo = {
+                name: name,
+                email:email,
+                role : "user",
+                district: district,
+              }
+
+              console.log(userInfo)
+              // axiosPublic.post('/users', userInfo )
+              // .then( res => {
+              //   console.log(res.data)
+              //   if(res.data.insertedId){
+              //     Swal.fire({
+              //       position: "top-center",
+              //       icon: "success",
+              //       title: "User Created Successful",
+              //       showConfirmButton: false,
+              //       timer: 1500
+              //     });
+              //     reset()
+              //     navigate('/')
+              //   }
+              // })
+
           event.target.reset();
 
           console.log(user);
@@ -79,6 +118,28 @@ const Register = () => {
                     className="input input-bordered"
                     required
                   />
+                </div>
+           
+
+                <div className="form-control ">
+                  <label className="label">
+                    <span className="label-text text-green-500">
+                     District
+                    </span>
+                  </label>
+                  <select
+                required
+                className="input input-bordered"
+                name="district"
+              >
+                
+                {districts?.map((area) => (
+                  <option value={area.label} key={area.district}>
+                    {area.district}
+                  </option>
+                ))}
+              </select>
+
                 </div>
 
                 <div className="form-control ">
