@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import axios, { all } from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSec from "../../Hooks/useAxiosSec";
@@ -13,10 +13,17 @@ import { ProgressBar } from "react-step-progress-bar";
 import Title from "../../Components/Title/Title";
 import Footer from "../../Components/Footer/Footer";
 
+
+// for sending email 
+import emailjs from '@emailjs/browser';
+
+
+
 const MyBidRequest = () => {
   const { user } = useAuth();
   const [allRequest, setAllRequest] = useState([]);
   const [myRequest, setMyRequest] = useState([]);
+   const form = useRef();
   
   const axiosSecure = useAxiosSec();
 
@@ -58,7 +65,9 @@ const MyBidRequest = () => {
         toast.success("Request Rejected");
 
         // send email to about reject bid request 
-        
+             // Send email using async/await
+             const result = await emailjs.sendForm("service_phiddio", "template_pm6oebj", form.current, "CI0W8Fvmb5rU_EeB5");
+             console.log(result.text);
 
       }
 
@@ -118,6 +127,8 @@ const MyBidRequest = () => {
       // Handle the error here
     }
   };
+
+  // console.log(myRequest)
 
   return (
     <div>
@@ -182,33 +193,45 @@ const MyBidRequest = () => {
                             onClick={() => handleAccept(req._id)}
                             className="btn btn-success mr-2 bg-green-500 text-white btn-sm"
                           >
-                            {" "}
-                            accept req{" "}
+                            
+                            accept req
                           </button>
                           <button
                             onClick={() => handleReject(req._id)}
                             className="btn btn-error text-white btn-sm"
                           >
-                            {" "}
-                            reject req{" "}
+                           
+                            reject req
+
+                       
+
                           </button>
                         </div>
+
+                        
+
                       ) : req.status == "Rejected" ? (
                         <div className="hidden">
                           <button
                             onClick={() => handleAccept(req._id)}
                             className="btn btn-success mr-2 bg-green-500 text-white btn-sm"
                           >
-                            {" "}
-                            accept req{" "}
+                           
+                            accept req
                           </button>
                           <button
                             onClick={() => handleReject(req._id)}
                             className="btn btn-error text-white  btn-sm"
                           >
-                            {" "}
-                            reject req{" "}
+                           
+                            reject req
                           </button>
+
+
+                         
+
+
+
                         </div>
                       ) : (
                         <div className="">
@@ -218,6 +241,27 @@ const MyBidRequest = () => {
                           />
                         </div>
                       )}
+
+<div>
+                                          {/* send email from  */}
+                                   <div className=" bg-gray-700 hidden">
+                                   <form ref={form} onSubmit={handleReject}>
+                                    <label>Name</label>
+                                    <input type="text" defaultValue='jobfair' name="from_name" />
+                                    <label>Email</label>
+                                    <label>Member Name</label>
+                                    <input type="text" defaultValue={'user'} name="member_name" />
+                                    <label>Email</label>
+                                    <br />
+                                    <input defaultValue = {req.email} type="email" name="user_email" />
+                                    <label>Message</label>
+                                    <textarea name="message" />
+                                    <input type="submit" value="Send" />
+                                    </form>
+                                     </div>
+                          </div>
+
+
                     </div>
                   </td>
                 </tr>
