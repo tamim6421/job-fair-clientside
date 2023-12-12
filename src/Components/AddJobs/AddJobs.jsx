@@ -27,7 +27,7 @@ const AddJobs = () => {
     queryKey: ["jobs"],
     queryFn: async () => {
       const allCategory = await fetch(
-        "http://localhost:5000/category"
+        "https://job-fair-server.vercel.app/category"
       );
       return await allCategory.json();
     },
@@ -78,7 +78,7 @@ const AddJobs = () => {
     };
     console.log(addJob);
     axios
-      .post("http://localhost:5000/jobs", addJob)
+      .post("https://job-fair-server.vercel.app/jobs", addJob)
       .then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {

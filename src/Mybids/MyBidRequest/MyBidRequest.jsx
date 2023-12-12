@@ -28,7 +28,7 @@ const MyBidRequest = () => {
   const axiosSecure = useAxiosSec();
 
   useEffect(() => {
-    axios.get("http://localhost:5000/request").then((res) => {
+    axios.get("https://job-fair-server.vercel.app/request").then((res) => {
       setAllRequest(res.data);
     });
   }, []);
@@ -48,7 +48,7 @@ const MyBidRequest = () => {
     console.log(id);
     try {
       const response = await fetch(
-        `http://localhost:5000/bidProject/${id}`,
+        `https://job-fair-server.vercel.app/bidProject/${id}`,
         {
           method: "PATCH",
           headers: {
@@ -72,7 +72,7 @@ const MyBidRequest = () => {
       }
 
       const responseAllRequest = await axios.get(
-        `http://localhost:5000/request`
+        `https://job-fair-server.vercel.app/request`
       );
       setAllRequest(responseAllRequest.data);
 
@@ -92,7 +92,7 @@ const MyBidRequest = () => {
       console.log(id);
 
       const response = await fetch(
-        `http://localhost:5000/bidProject/${id}`,
+        `https://job-fair-server.vercel.app/bidProject/${id}`,
         {
           method: "PATCH",
           headers: {
@@ -112,7 +112,7 @@ const MyBidRequest = () => {
       }
 
       const responseAllRequest = await axios.get(
-        "http://localhost:5000/request"
+        "https://job-fair-server.vercel.app/request"
       );
       setAllRequest(responseAllRequest.data);
 

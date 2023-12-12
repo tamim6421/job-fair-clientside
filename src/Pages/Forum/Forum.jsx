@@ -81,7 +81,7 @@ const Forum = () => {
                 if(res.data.insertedId){
                 toast.success('Post Uploaded')
                   e.target.reset();
-                //  refetch()
+                 refetch()
                 
                 }
               })

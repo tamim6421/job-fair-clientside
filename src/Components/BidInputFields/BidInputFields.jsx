@@ -52,7 +52,7 @@ const BidInputFields = () => {
     }
 
     axios
-      .post("http://localhost:5000/bidProject", bidInfo)
+      .post("https://job-fair-server.vercel.app/bidProject", bidInfo)
       .then((data) => {
         console.log(data.data);
         if (data.data.insertedId) {

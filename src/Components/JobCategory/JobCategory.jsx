@@ -18,14 +18,14 @@ const JobCategory = () => {
 
 
   useEffect(() =>{
-    axios.get('http://localhost:5000/category')
+    axios.get('https://job-fair-server.vercel.app/category')
     .then((res) => setCategories(res.data));
   } ,[])
 
   
   useEffect(() => {
    
-    axios.get(`http://localhost:5000/jobs?category=${category}`, {withCredentials: true})
+    axios.get(`https://job-fair-server.vercel.app/jobs?category=${category}`, {withCredentials: true})
     .then((res) => {
       // console.log(res.data)
       setAllJobs(res.data)
