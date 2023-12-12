@@ -13,7 +13,14 @@ const AllJobs = () => {
     const [allJobs, setAllJobs] = useState([])
     const [search , setSearch] = useState('')
 
-  
+    useEffect( () =>{
+        fetch(`https://job-fair-server.vercel.app/all?search=${search}`)
+        .then(res => res.json())
+        .then(data =>{
+            setAllJobs(data)
+        })
+    } ,[search])
+
     const handelSearch = (e) =>{
         e.preventDefault()
         const value = e.target.search.value 
